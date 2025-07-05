@@ -27,7 +27,6 @@ const Home = () => {
       id="home"
       className="w-[90%] lg:w-[80%] h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between lg:gap-10"
     >
-      {/* Temporary responsive check */}
       <div
         data-ui="resCheck"
         className="bg-red-400 sm:bg-orange-400 md:bg-yellow-400 lg:bg-green-400 xl:bg-blue-400 fixed bottom-10 right-10 h-16 w-16 rounded-full flex items-center justify-center border-2 text-black/80 text-lg sm:text-xl font-bold opacity-80 shadow-lg"
@@ -37,7 +36,7 @@ const Home = () => {
 
       <div
         data-ui="animation"
-        className="h-60 w-76 md:h-70 md:w-86 lg:h-80 lg:w-96 mb-10"
+        className="h-55 w-71 md:h-70 md:w-86 lg:h-80 lg:w-96 mb-15"
       >
         <Lottie animationData={codingAnimation} loop={true} />
       </div>
@@ -48,7 +47,7 @@ const Home = () => {
       >
         <p className="text-base sm:text-lg text-prime/80">Hello</p>
 
-        <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-gray-900/90">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900/90">
           I am <span className="text-prime font-black">Kishan Kumar</span>
         </h1>
 
@@ -57,14 +56,17 @@ const Home = () => {
         </p>
 
         <p className="text-black/70 text-sm sm:text-base md:text-lg lg:w-[80%]">
-          I'm a passionate frontend web developer focused on building clean,
-          responsive, and modern websites. <br /> This portfolio highlights my
-          skills, design approach, and the value I bring to freelance projects.
+          I'm a passionate frontend web developer focused on building{" "}
+          <span className="font-black">
+            clean, responsive, and modern websites.
+          </span>
+          <br /> This portfolio highlights my skills, design approach, and the
+          value I bring to freelance projects.
         </p>
 
         <ul
           data-ui="socials"
-          className="ml-4 flex gap-3 text-3xl sm:text-3xl text-prime mt-4"
+          className="ml-4 flex gap-3 text-4xl sm:text-3xl text-prime mt-4"
         >
           {socialData.map((link, i) => (
             <SocialLink key={i} url={link.url} icon={link.icon} />
