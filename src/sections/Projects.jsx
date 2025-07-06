@@ -121,9 +121,17 @@ const Projects = () => {
         from pixel-perfect UI clones and original problem-solving apps to
         business-ready templates built for real-world use.
       </p>
-      <ProjectType type="UI Clones" projects={uiClones} />
-      <ProjectType type="Problem Solving" projects={problemSolvingApps} />
+      <ProjectType type="UI/UX Clones" projects={uiClones} />
+      <ProjectType
+        type="Personal Ideas & Mini Apps"
+        projects={problemSolvingApps}
+      />
       <ProjectType type="Business Templates" projects={businessTemplates} />
+      <p>
+        “Looking for a custom website like these? Let's connect and build
+        something great.”
+      </p>
+      <a href="#services">Explore Services</a>
     </div>
   );
 };

@@ -27,7 +27,7 @@ const IntroductionSection = () => {
     <div>
       <SectionTitle text="Who am I?" />
       <p>
-        I'm a <b>16-year-old frontend web developer</b> and student with a
+        I'm a <b>17-year-old frontend web developer</b> and student with a
         strong passion for creating clean, responsive, and modern websites.
         While web development is my primary focus, I'm also deeply interested in{" "}
         <b>system programming</b> as a side pursuit—exploring how things work

@@ -1,18 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Header = () => {
+  const [showHeader, setShowHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY > lastScrollY && currentScrollY > 60) {
+        // Scrolling down
+        setShowHeader(false);
+      } else {
+        // Scrolling up
+        setShowHeader(true);
+      }
+
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
   return (
     <header
-      className="z-100 shadow-2xs  bg-prime
-      py-2 flex sticky w-full top-0 justify-between items-center"
+      className={`z-[100] bg-prime py-2 px-3 w-full fixed top-0 flex justify-between items-center
+        transition-transform duration-300 ease-in-out
+        ${showHeader ? "translate-y-0" : "-translate-y-full"}
+      `}
     >
       <div
         data-ui="logo"
-        className="text-white text-shadow-2xs ml-3 text-2xl font-bold flex justify-center items-center"
+        className="text-white text-shadow-2xs text-2xl font-black flex items-center"
       >
-        <span className="font-black">Kishan-DevX</span>
+        Kishan-DevX
       </div>
-      <i className="ri-menu-3-line text-white text-shadow-2xs mr-3 text-2xl font-bold"></i>
+      <i className="ri-menu-3-line text-white text-shadow-2xs text-2xl font-bold"></i>
     </header>
   );
 };

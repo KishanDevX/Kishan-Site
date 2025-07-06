@@ -4,6 +4,10 @@
   --color-prime: #7450e9;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   @apply bg-gray-900/70;
 }
