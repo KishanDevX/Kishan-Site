@@ -47,8 +47,8 @@ const WhatIDoSection = () => {
           TypeScript)
         </li>
         <li>
-          Design basic UI layouts and component structures with a focus on
-          usability
+          Create well-structured UI layouts and maintainable components for
+          better UX
         </li>
         <li>Plan and structure clean, scalable frontends</li>
         <li>
@@ -125,6 +125,35 @@ const WhyMeSection = () => {
   );
 };
 
+const BioCard = () => {
+  const bioTags = [
+    "Freelance Ready",
+    "Responsive UI",
+    "Fast Delivery",
+    "Self-Taught",
+    "Open to Feedback",
+  ];
+  return (
+    <div data-ui="bioCard" className="">
+      <div data-ui="myPic" className="">
+        {/* <img src="" alt="" /> */}
+        <div data-ui="highlight">For Hire</div>
+      </div>
+      <div data-ui="job" className="">
+        Frontend Web Developer
+      </div>
+      <ul data-ui="tags" className="flex flex-wrap gap-2">
+        {bioTags.map((tag, index) => (
+          <li key={index} className="bg-gray-200 px-3 py-1 rounded-full">
+            {tag}
+          </li>
+        ))}
+      </ul>
+      <a href="#projects">View Projects</a>
+    </div>
+  );
+};
+
 // Main About Section
 const About = () => {
   return (
@@ -134,6 +163,7 @@ const About = () => {
       <WhatIDoSection />
       <SkillsSection />
       <WhyMeSection />
+      <BioCard />
     </div>
   );
 };

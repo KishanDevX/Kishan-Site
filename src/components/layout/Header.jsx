@@ -4,7 +4,7 @@ const Header = () => {
   return (
     <header
       className="z-100 shadow-2xs  bg-prime
-      py-2 flex fixed w-full top-0 justify-between items-center"
+      py-2 flex sticky w-full top-0 justify-between items-center"
     >
       <div
         data-ui="logo"
