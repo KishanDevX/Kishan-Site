@@ -119,6 +119,22 @@ const LimitedOffer = () => {
   );
 };
 
+const Testimonial = ({ pic, name, feedback, rating }) => {
+  return (
+    <div className="testimonial">
+      <img src={pic} alt={name} />
+      <h4>{name}</h4>
+      <p>{feedback}</p>
+      <div className="rating">
+        {Array.from({ length: rating }, (_, i) => (
+          <i key={i} className="ri-star-fill"></i>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+// main services Section
 const Services = () => {
   const basicPack = {
     title: "Essential Starter Package",
@@ -172,6 +188,27 @@ const Services = () => {
     link: "#",
   };
 
+  const testimonialData = [
+    {
+      pic: "#",
+      name: "John Doe",
+      feedback: "Kishan did an amazing job on my website!",
+      rating: 5,
+    },
+    {
+      pic: "#",
+      name: "Jane Smith",
+      feedback: "Highly recommend! Professional and quick.",
+      rating: 4,
+    },
+    {
+      pic: "#",
+      name: "Alice Johnson",
+      feedback: "Great service, very satisfied with the results.",
+      rating: 5,
+    },
+  ];
+
   return (
     <div id="services" className="w-full">
       <SectionHead title="Services" icon="ri-briefcase-fill" />
@@ -180,6 +217,18 @@ const Services = () => {
         <Packages gig={basicPack} />
         <Packages gig={standardPack} />
         <Packages gig={premiumPack} />
+      </div>
+      <div data-ui="testimonials" className="">
+        <h2>What My Clients Say</h2>
+        {testimonialData.map((testimonial, index) => (
+          <Testimonial
+            key={index}
+            pic={testimonial.pic}
+            name={testimonial.name}
+            feedback={testimonial.feedback}
+            rating={testimonial.rating}
+          />
+        ))}
       </div>
       <LimitedOffer />
     </div>

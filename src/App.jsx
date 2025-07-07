@@ -9,12 +9,21 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className="w-full bg-white flex flex-col items-center">
+      <main className="w-full bg-white dark:bg-gray-900 flex flex-col items-center">
         <Home />
         <About />
         <Projects />
         <Services />
       </main>
+      <button
+        data-ui="themeToggle"
+        className="bg-prime/60 text-white py-1 px-2 rounded shadow-md fixed bottom-4 right-4 z-50 hover:bg-prime/90 transition"
+        onClick={() => {
+          document.documentElement.classList.toggle("dark");
+        }}
+      >
+        Toggle
+      </button>
     </>
   );
 };

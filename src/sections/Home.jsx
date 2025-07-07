@@ -2,82 +2,92 @@ import React from "react";
 import Lottie from "lottie-react";
 import codingAnimation from "../assets/Animations/codingAnimation.json";
 
-const SocialLink = ({ url, icon }) => {
+// common
+const SocialLink = ({ url, icon }) => (
+  <li>
+    <a href={url} target="_blank" rel="noopener noreferrer">
+      <i className={icon}></i>
+    </a>
+  </li>
+);
+
+// home section components
+const AnimationSection = () => {
   return (
-    <li>
-      <a href={url} target="_blank" rel="noopener noreferrer">
-        <i className={icon}></i>
-      </a>
-    </li>
+    <div className="w-full lg:w-1/2 flex justify-center">
+      <Lottie
+        animationData={codingAnimation}
+        loop={true}
+        className="w-full max-w-md"
+      />
+    </div>
   );
 };
 
+// main Home component
 const Home = () => {
   const socialData = [
     { url: "https://github.com/KishanDevX", icon: "ri-github-fill" },
     {
-      url: "https://www.linkedin.com/in/kishan-kumar-7057a831a/",
+      url: "https://linkedin.com/in/kishan-kumar",
       icon: "ri-linkedin-box-fill",
     },
     { url: "https://x.com/KishanDevX", icon: "ri-twitter-x-line" },
   ];
 
   return (
-    <div
+    <section
       id="home"
-      className="w-[90%] lg:w-[80%] h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between lg:gap-10"
+      className="w-[90%] lg:w-[80%] min-h-screen mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 py-20"
     >
-      <div
-        data-ui="resCheck"
-        className="bg-red-400 sm:bg-orange-400 md:bg-yellow-400 lg:bg-green-400 xl:bg-blue-400 fixed bottom-10 right-10 h-16 w-16 rounded-full flex items-center justify-center border-2 text-black/80 text-lg sm:text-xl font-bold opacity-80 shadow-lg"
-      >
-        R
-      </div>
+      <AnimationSection />
 
-      <div
-        data-ui="animation"
-        className="h-55 w-71 md:h-70 md:w-86 lg:h-80 lg:w-96 mb-15"
-      >
-        <Lottie animationData={codingAnimation} loop={true} />
-      </div>
+      {/* Text Content (Right) */}
+      <div className="w-full lg:w-1/2 space-y-4 lg:space-y-6">
+        <div className="space-y-2">
+          <p className="text-lg text-prime/80">Hey there!</p>
+          <h1 className="text-4xl md:text-5xl font-bold dark:text-white/90 text-gray-900">
+            I'm <span className="text-prime">Kishan Kumar</span>
+          </h1>
+          <p className="text-xl text-gray-600 dark:text-white/60">
+            Frontend Developer • Freelancer
+          </p>
+        </div>
 
-      <div
-        data-ui="intro"
-        className="w-[90%] sm:w-[70%] md:w-[60%] flex flex-col justify-center"
-      >
-        <p className="text-base sm:text-lg text-prime/80">Hello</p>
-
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-gray-900/90">
-          I am <span className="text-prime font-black">Kishan Kumar</span>
-        </h1>
-
-        <p className="ml-4 text-sm sm:text-base mt-2 lg:mt-5 text-black/80">
-          @Web Developer
+        {/* Value Proposition */}
+        <p className="text-gray-700 dark:text-white/80 md:text-lg leading-relaxed">
+          I build{" "}
+          <span className="font-semibold text-prime">
+            fast, responsive websites
+          </span>{" "}
+          that help small businesses and creators stand out online. Currently
+          accepting select freelance projects.
         </p>
 
-        <p className="text-black/70 text-sm sm:text-base md:text-lg lg:w-[80%]">
-          I'm a passionate frontend web developer focused on building{" "}
-          <span className="font-black">
-            clean, responsive, and modern websites.
-          </span>
-          <br /> This portfolio highlights my skills, design approach, and the
-          value I bring to freelance projects.
-        </p>
-
-        <ul
-          data-ui="socials"
-          className="ml-4 flex gap-3 text-4xl sm:text-3xl text-prime mt-4"
-        >
+        {/* Social Links */}
+        <ul className="flex gap-4 text-4xl text-prime mt-6">
           {socialData.map((link, i) => (
             <SocialLink key={i} url={link.url} icon={link.icon} />
           ))}
         </ul>
 
-        <button className="mt-6 shadow-md px-6 py-1 self-center bg-prime text-white rounded-lg">
-          Reach Out
-        </button>
+        {/* CTA Buttons */}
+        <div className="flex items-center w-full gap-5 mt-6">
+          <a
+            href="#projects"
+            className="px-6 py-1 bg-prime text-white rounded-lg shadow-md hover:bg-prime/90 transition"
+          >
+            See my Work
+          </a>
+          <a
+            href="#contact"
+            className="px-6 py-1 border-2 border-prime text-prime rounded-lg hover:bg-prime/10 transition"
+          >
+            Hire Me
+          </a>
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
