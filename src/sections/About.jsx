@@ -11,7 +11,7 @@ const SectionTitle = ({ text, icon }) => (
 const IntroductionSection = () => (
   <div className="px-2 py-4 m-4">
     <SectionTitle text="Who am I?" icon="ri-user-3-line" />
-    <p className="text-gray-700/90 leading-relaxed">
+    <p className="text-gray-700/90 leading-relaxed dark:text-white/80">
       I'm a 17 years old <b>frontend specialist</b> building modern websites for
       small businesses and creators.
       <br /> While I excel at crafting responsive UIs, I'm also passionate about{" "}
@@ -31,7 +31,12 @@ const WhatIDoSection = () => (
         "React-based components for maintainable code",
         "Performance optimization as standard practice",
       ].map((item, i) => (
-        <li key={i} className="text-gray-700/90 mb-2">
+        <li
+          key={i}
+          data-aos="fade-right"
+          data-aos-delay={`${i * 200}`}
+          className="text-gray-700/90 dark:text-white/90 mb-2"
+        >
           <i className="ri-checkbox-circle-fill text-prime"></i> {item}
         </li>
       ))}
@@ -72,13 +77,19 @@ const SkillsSection = () => {
         {skillGroups.map((group) => (
           <div key={group.name} className="p-4 border-b border-gray-200">
             <div className="mb-1">
-              <h4 className="font-bold text-gray-800">{group.name}</h4>
-              <p className="text-md text-gray-600 pb-2">{group.description}</p>
+              <h4 className="font-bold dark:text-white/90 text-gray-800">
+                {group.name}
+              </h4>
+              <p className="text-md text-gray-600 pb-2 dark:text-gray-200/70">
+                {group.description}
+              </p>
             </div>
             <ul className="flex flex-wrap gap-2">
-              {group.items.map((item) => (
+              {group.items.map((item, idx) => (
                 <li
                   key={item}
+                  data-aos="zoom-out-up"
+                  data-aos-delay={`${idx * 300}`}
                   className="bg-gray-100 text-prime px-3 py-1 rounded-full text-sm"
                 >
                   {item}
@@ -94,7 +105,7 @@ const SkillsSection = () => {
 
 const BioCard = () => (
   <div className="w-full mb-25">
-    <div className=" flex flex-col items-center">
+    <div className="flex flex-col items-center">
       <div
         data-ui="myself-pic"
         className="border-3 m-2 border-prime/70 rounded-full h-30 w-30 flex justify-center items-center"
@@ -103,10 +114,12 @@ const BioCard = () => (
       </div>
 
       <div>
-        <h3 className="text-center text-gray-900 font-bold text-xl ">
+        <h3 className="text-center dark:text-white text-gray-900 dar font-bold text-xl ">
           Kishan Kumar
         </h3>
-        <p className="text-gray-700/90">Frontend Web Developer</p>
+        <p className="text-gray-700/90 dark:text-gray-200/80">
+          Frontend Web Developer
+        </p>
       </div>
     </div>
 
@@ -125,7 +138,7 @@ const BioCard = () => (
     </div>
     <div className="w-full flex justify-center mt-4">
       <a className="bg-prime text-white px-2 py-1 rounded-md" href="#projects">
-        <i class="ri-folder-5-line"></i> View Projects
+        <i className="ri-folder-5-line"></i> View Projects
       </a>
     </div>
   </div>
@@ -133,7 +146,7 @@ const BioCard = () => (
 
 const About = () => {
   return (
-    <section id="about">
+    <section id="about" className="w-full">
       <div>
         <SectionHead
           title="About Me"

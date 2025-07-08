@@ -2,27 +2,82 @@ import React from "react";
 import SectionHead from "../components/common/SectionHead";
 
 //common
-const Packages = ({ gig }) => {
+const Packages = ({ gig, type }) => {
+  const colors = {
+    basic: {
+      bg: "bg-blue-300",
+      text: "text-blue-500",
+    },
+    standard: {
+      bg: "bg-amber-400",
+      text: "text-amber-400",
+    },
+    premium: {
+      bg: "bg-violet-700",
+      text: "text-violet-700",
+    },
+  };
+
   return (
-    <div data-ui="packageGig" className="py-5">
-      <h2>{gig.title}</h2>
-      <span>
-        <b>For:</b>
-        {gig.for}
-      </span>
-      <span>
-        <b>Perfect for:</b>
-        {gig.perfectFor}
-      </span>
-      <h3>what you get:</h3>
-      <ul>
-        {gig.gives.map((give, index) => (
-          <li key={index}>{give}</li>
-        ))}
-      </ul>
-      <span>Introductory Price: {gig.price}</span>
-      <span>only {gig.leftSlots} slots left</span>
-      <a href={gig.link}>Order Now</a>
+    <div data-ui="packageGig" className="shadow-xl rounded-2xl mx-5 my-20">
+      <div
+        data-ui="screen"
+        className={`${colors[type].bg} h-50 rounded-t-2xl m-1 flex flex-col justify-center items-center`}
+      >
+        <span className="text-2xl text-white capitalize">{type}</span>
+        <span className="text-4xl text-white py-1 font-bold text-shadow-2xs">
+          {gig.price}
+        </span>
+        <h2 className="text-white/80">{gig.title}</h2>
+      </div>
+      <div data-ui="textPart" className="p-4">
+        <span className="text-gray-600/90">
+          <b className="text-gray-600">For:</b> {gig.for}
+        </span>
+        <br />
+        <span className="text-gray-600/90">
+          <b className="text-gray-600">Perfect for:</b> {gig.perfectFor}
+        </span>
+        <h3 className={`pt-6 ${colors[type].text} capitalize font-semibold `}>
+          what you get:
+        </h3>
+        <ul className="text-gray-800/90 pb-4">
+          {gig.gives.map((give, index) => {
+            return (
+              <li key={index} className="mb-3">
+                <i
+                  className={`${colors[type].text} ri-check-line`}
+                  key={index}
+                ></i>{" "}
+                <span key={`${index} part`}>{give}</span>
+              </li>
+            );
+          })}
+        </ul>
+        <h5 className="text-gray-900/90">
+          <span className="font-semibold text-emerald-600">
+            Introductory Price:
+          </span>{" "}
+          {gig.originPrice ? (
+            <span className="text-gray-400 line-through">
+              {gig.originPrice}
+            </span>
+          ) : null}{" "}
+          {gig.price}
+        </h5>
+        <br />
+        <span className="text-red-500/70 text-sm">
+          only {gig.leftSlots} slots left
+        </span>
+        <div className="flex justify-center py-5">
+          <a
+            href={gig.link}
+            className={`${colors[type].bg} text-white text-shadow-2xs px-15 mt-10 rounded-full py-2`}
+          >
+            Order Now
+          </a>
+        </div>
+      </div>
     </div>
   );
 };
@@ -31,16 +86,18 @@ const Packages = ({ gig }) => {
 const IntroPara = () => {
   return (
     <>
-      <p>
+      <p className="p-5 text-lg text-gray-800/90">
         As a young developer specializing in modern web solutions, I help
         <b> small businesses, creators, and professionals</b> establish their
         digital presence with <b>fast, affordable, and conversion-focused</b>{" "}
-        websites. Unlike agencies that charge premium rates, I deliver{" "}
+        websites.
+        <br /> <br />
+        Unlike agencies that charge premium rates, I deliver{" "}
         <b>hand-coded websites with unlimited revisions</b>—ensuring you get
         exactly what you need without breaking the bank.
       </p>
       <PackagesTable />
-      <p>
+      <p className="p-3 text-gray-900/90">
         All packages include{" "}
         <b>
           mobile-friendly designs, SEO basics, and 1-month post-delivery support
@@ -53,48 +110,62 @@ const IntroPara = () => {
 
 const PackagesTable = () => {
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>Features</th>
-          <th>Basic</th>
-          <th>Standard</th>
-          <th>Advanced</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Pages</td>
-          <td>1</td>
-          <td>3-4</td>
-          <td>6+</td>
-        </tr>
-        <tr>
-          <td>Revisions</td>
-          <td>unlimited</td>
-          <td>unlimited</td>
-          <td>unlimited</td>
-        </tr>
-        <tr>
-          <td>Support Period</td>
-          <td>1 month</td>
-          <td>2 month</td>
-          <td>3 month</td>
-        </tr>
-        <tr>
-          <td>Best For</td>
-          <td>portfolios</td>
-          <td>small businesses</td>
-          <td>startups</td>
-        </tr>
-        <tr>
-          <td>starting from</td>
-          <td>₹500</td>
-          <td>₹800</td>
-          <td>₹1200</td>
-        </tr>
-      </tbody>
-    </table>
+    <div id="offerSet" className="overflow-x-auto py-10 px-5 scrollbar-hide">
+      <table className="w-full shadow-2xl border-collapse overflow-hidden">
+        <thead className=" bg-prime/80 text-white">
+          <tr>
+            <th className="text-left py-3 px-4 font-semibold border-b">
+              Features
+            </th>
+            <th className="text-center py-3 px-4 font-semibold border-b">
+              Basic
+            </th>
+            <th className="text-center py-3 px-4 bg-prime/70 font-semibold border-b">
+              Standard{" "}
+            </th>
+            <th className="text-center py-3 px-4 font-semibold border-b">
+              Advanced
+            </th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-gray-200">
+          <tr>
+            <td className="py-3 px-4 font-medium">Pages</td>
+            <td className="text-center py-3 px-4">1</td>
+            <td className="text-center py-3 px-4 bg-blue-50">3-4</td>
+            <td className="text-center py-3 px-4">6+</td>
+          </tr>
+          <tr>
+            <td className="py-3 px-4 font-medium">Revisions</td>
+            <td className="text-center py-3 px-4">∞</td>
+            <td className="text-center py-3 px-4 bg-blue-50">∞</td>
+            <td className="text-center py-3 px-4">∞</td>
+          </tr>
+          <tr>
+            <td className="py-3 px-4 font-medium">Support</td>
+            <td className="text-center py-3 px-4">1 month</td>
+            <td className="text-center py-3 px-4 bg-blue-50">2 months</td>
+            <td className="text-center py-3 px-4">3 months</td>
+          </tr>
+          <tr>
+            <td className="py-3 px-4 font-medium">Best For</td>
+            <td className="text-center py-3 px-4">Portfolios</td>
+            <td className="text-center py-3 px-4 bg-blue-50">
+              Small Businesses
+            </td>
+            <td className="text-center py-3 px-4">Startups</td>
+          </tr>
+          <tr className="border-t-2 border-gray-300">
+            <td className="py-3 px-4 font-bold">From</td>
+            <td className="text-center py-3 px-4 font-bold text-lg">₹500</td>
+            <td className="text-center py-3 px-4 font-bold text-lg bg-blue-50 text-blue-600">
+              ₹800
+            </td>
+            <td className="text-center py-3 px-4 font-bold text-lg">₹1200</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   );
 };
 
@@ -167,6 +238,7 @@ const Services = () => {
       "Unlimited revisions + 2-month support",
     ],
     price: "₹800",
+    originPrice: "₹1,499",
     leftSlots: 7,
     link: "#",
   };
@@ -178,12 +250,13 @@ const Services = () => {
     gives: [
       "6+ pages with dynamic content structure",
       "API integrations (Contact forms, newsletter signup)",
-      "Advanced animations (Framer Motion/GSAP)",
+      "Advanced animations (Framer Motion)",
       "Role-based access (Admin/user views if needed)",
       "Database setup (Firebase/MongoDB for data storage)",
       "3-month priority support",
     ],
     price: "₹1,200",
+    originPrice: "₹2,499",
     leftSlots: 5,
     link: "#",
   };
@@ -214,9 +287,9 @@ const Services = () => {
       <SectionHead title="Services" icon="ri-briefcase-fill" />
       <IntroPara />
       <div data-ui="packages" className="">
-        <Packages gig={basicPack} />
-        <Packages gig={standardPack} />
-        <Packages gig={premiumPack} />
+        <Packages gig={basicPack} color={"blue-200"} type={"basic"} />
+        <Packages gig={standardPack} color={"amber-400"} type={"standard"} />
+        <Packages gig={premiumPack} color={"violet-700"} type={"premium"} />
       </div>
       <div data-ui="testimonials" className="">
         <h2>What My Clients Say</h2>

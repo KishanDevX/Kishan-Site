@@ -1,11 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Header from "./components/layout/Header";
 import Home from "./sections/Home";
 import About from "./sections/About";
 import Projects from "./sections/Projects";
 import Services from "./sections/Services";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const App = () => {
+  useEffect(() => {
+    AOS.init({ duration: 800 });
+  }, []);
+
   return (
     <>
       <Header />

@@ -14,7 +14,10 @@ const SocialLink = ({ url, icon }) => (
 // home section components
 const AnimationSection = () => {
   return (
-    <div className="w-full lg:w-1/2 flex justify-center">
+    <div
+      data-aos="zoom-in-down"
+      className="w-full lg:w-1/2 flex justify-center"
+    >
       <Lottie
         animationData={codingAnimation}
         loop={true}
@@ -45,7 +48,14 @@ const Home = () => {
       {/* Text Content (Right) */}
       <div className="w-full lg:w-1/2 space-y-4 lg:space-y-6">
         <div className="space-y-2">
-          <p className="text-lg text-prime/80">Hey there!</p>
+          <p
+            data-aos="fade-right"
+            data-aos-duration="2000"
+            data-aos-delay="200"
+            className="text-lg text-prime/80"
+          >
+            Hey there!
+          </p>
           <h1 className="text-4xl md:text-5xl font-bold dark:text-white/90 text-gray-900">
             I'm <span className="text-prime">Kishan Kumar</span>
           </h1>
