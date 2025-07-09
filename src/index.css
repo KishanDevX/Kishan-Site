@@ -6,6 +6,14 @@
   --color-prime: #7450e9;
 }
 
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -1,20 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import SectionHead from "../components/common/SectionHead";
 import Lottie from "lottie-react";
 import searchingAnimation from "../assets/Animations/searchingAnimation.json";
 
 // common
-const ProjectType = ({ type, icon, projects }) => {
+const ProjectType = ({ type, referencePara, icon, projects }) => {
   return (
     <section className="mb-15 p-4">
-      <h2 className="text-2xl font-bold text-prime mb-4">
+      <h2 className="text-2xl font-bold text-prime">
         <i className={icon}></i> {type}
       </h2>
-      <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="flex py-4 overflow-x-auto no-scrollbar">
         {projects.map((project, index) => (
           <Project key={index} {...project} />
         ))}
       </div>
+      <p>{referencePara}</p>
     </section>
   );
 };
@@ -32,21 +33,24 @@ const Project = ({
       data-ui="project"
       data-aos="zoom-in-up"
       data-aos-duration="1000"
-      data-aos-delay="400"
-      className="mx-1 px-4 py-8 shadow-xl rounded-2xl"
+      className="px-4 mx-2 mr-10 py-4 bg-white shadow-md shadow-gray-300/50 shrink-0 rounded-2xl"
     >
-      <img
-        src={image}
-        alt={title}
+      <div
+        data-ui="image-display"
         className="rounded-2xl h-40 bg-gray-300/70 mb-3"
-      />
+      >
+        <img src={image} alt={title} className="" />
+      </div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
 
       <p className="text-sm text-gray-600">{description}</p>
-      <span className="font-semibold mt-3 block">Features:</span>
-      <ul className="list-disc list-inside text-prime text-sm">
+      <span className="font-semibold text-prime mt-3 block">Features:</span>
+      <ul className="text-text-800 text-sm">
         {features.map((feature, index) => (
-          <li key={index}>{feature}</li>
+          <li key={index} className="flex items-center">
+            <span className="text-prime text-2xl pr-1">&bull;</span>
+            <span className="text-gray-800/80">{feature}</span>
+          </li>
         ))}
       </ul>
       <div className="mt-4 flex items-center gap-4">
@@ -134,10 +138,19 @@ const Projects = () => {
     },
   ];
 
+  const explainPara = {
+    uiCloning:
+      "Clean, pixel-perfect recreations of real-world interfaces — these projects demonstrate my ability to replicate complex layouts and responsive designs with precision. They show you how closely I can match any visual idea you bring.",
+    prblmSolving:
+      "Built from scratch to solve real needs — these apps showcase my logical thinking, feature planning, and coding depth. From utilities to tools, each one reflects how I approach problems and create useful digital solutions.",
+    clientTemplates:
+      "Professionally designed templates tailored for businesses — whether it's a landing page, portfolio, or service site, these templates show how I structure clean, functional websites that are ready to convert and impress.",
+  };
+
   return (
-    <div id="projects" className="w-full py-10 mb-30">
+    <div id="projects" className="w-full bg-gray-50 mt-10 pb-30">
       <SectionHead title="My Projects" icon="ri-folder-fill" />
-      <p className="text-gray-700/90 p-3">
+      <p className="text-gray-700/90 p-3 mb-5">
         A curated set of projects categorized to highlight different strengths —
         from pixel-perfect UI clones and original problem-solving apps to
         business-ready templates built for real-world use.
@@ -146,23 +159,26 @@ const Projects = () => {
         type="UI/UX Clones"
         icon="ri-layout-3-line"
         projects={uiClones}
+        referencePara={explainPara.uiCloning}
       />
       <ProjectType
         type="Personal Ideas & Mini Apps"
         icon="ri-lightbulb-line"
         projects={problemSolvingApps}
+        referencePara={explainPara.prblmSolving}
       />
       <ProjectType
         type="Client Projects"
         icon="ri-briefcase-2-line"
         projects={clientProjects}
+        referencePara={explainPara.clientTemplates}
       />
       <Lottie
         animationData={searchingAnimation}
         loop={true}
         className="w-full max-w-md"
       />
-      <p className="p-4 text-gray-600 text-xl pb-10">
+      <p className="px-5 text-gray-600 text-md pb-10">
         Still browsing through different website styles and have a{" "}
         <span className="bg-yellow-200/100 text-black px-1">custom idea</span>{" "}
         in mind?

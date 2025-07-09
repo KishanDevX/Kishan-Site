@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SectionHead from "../components/common/SectionHead";
 
 //common
@@ -18,8 +18,10 @@ const Packages = ({ gig, type }) => {
     },
   };
 
+  const [gigFeatures, setgigFeatures] = useState(false);
+
   return (
-    <div data-ui="packageGig" className="shadow-xl rounded-2xl mx-5 my-20">
+    <div data-ui="packageGig" className="shadow-xl rounded-2xl mx-5 mb-15">
       <div
         data-ui="screen"
         className={`${colors[type].bg} h-50 rounded-t-2xl m-1 flex flex-col justify-center items-center`}
@@ -38,31 +40,49 @@ const Packages = ({ gig, type }) => {
         <span className="text-gray-600/90">
           <b className="text-gray-600">Perfect for:</b> {gig.perfectFor}
         </span>
-        <h3 className={`pt-6 ${colors[type].text} capitalize font-semibold `}>
-          what you get:
-        </h3>
-        <ul className="text-gray-800/90 pb-4">
-          {gig.gives.map((give, index) => {
-            return (
-              <li key={index} className="mb-3">
-                <i
-                  className={`${colors[type].text} ri-check-line`}
+        <br />
+        <button
+          className={`pt-6 ${colors[type].text} capitalize font-semibold flex items-center `}
+          onClick={() => {
+            setgigFeatures((prev) => !prev);
+          }}
+        >
+          <span>what you get</span>
+          {gigFeatures ? (
+            <i class="ri-arrow-drop-down-line text-2xl"></i>
+          ) : (
+            <i class="ri-arrow-drop-right-line text-2xl"></i>
+          )}
+        </button>
+        {gigFeatures && (
+          <ul className="text-gray-800/90 pb-4">
+            {gig.gives.map((give, index) => {
+              return (
+                <li
                   key={index}
-                ></i>{" "}
-                <span key={`${index} part`}>{give}</span>
-              </li>
-            );
-          })}
-        </ul>
-        <h5 className="text-gray-900/90">
-          <span className="font-semibold text-emerald-600">
+                  data-aos="zoom-in-up"
+                  data-aos-delay={`${index * 100}`}
+                  className="mb-3"
+                >
+                  <i
+                    className={`${colors[type].text} ri-check-line`}
+                    key={index}
+                  ></i>{" "}
+                  <span key={`${index} part`}>{give}</span>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+        <h5 className="text-gray-900/90 my-4">
+          <span className={`font-semibold ${colors[type].text}`}>
             Introductory Price:
           </span>{" "}
-          {gig.originPrice ? (
+          {gig.originPrice && (
             <span className="text-gray-400 line-through">
               {gig.originPrice}
             </span>
-          ) : null}{" "}
+          )}{" "}
           {gig.price}
         </h5>
         <br />
@@ -86,7 +106,7 @@ const Packages = ({ gig, type }) => {
 const IntroPara = () => {
   return (
     <>
-      <p className="p-5 text-lg text-gray-800/90">
+      <p className="p-5 text-lg text-gray-700/90">
         As a young developer specializing in modern web solutions, I help
         <b> small businesses, creators, and professionals</b> establish their
         digital presence with <b>fast, affordable, and conversion-focused</b>{" "}
@@ -96,76 +116,96 @@ const IntroPara = () => {
         <b>hand-coded websites with unlimited revisions</b>—ensuring you get
         exactly what you need without breaking the bank.
       </p>
-      <PackagesTable />
-      <p className="p-3 text-gray-900/90">
-        All packages include{" "}
-        <b>
-          mobile-friendly designs, SEO basics, and 1-month post-delivery support
-        </b>
-        . Need something custom? <a href="#contact">Just ask!</a>
-      </p>
     </>
   );
 };
 
 const PackagesTable = () => {
+  const [IsTable, setIsTable] = useState(false);
   return (
-    <div id="offerSet" className="overflow-x-auto py-10 px-5 scrollbar-hide">
-      <table className="w-full shadow-2xl border-collapse overflow-hidden">
-        <thead className=" bg-prime/80 text-white">
-          <tr>
-            <th className="text-left py-3 px-4 font-semibold border-b">
-              Features
-            </th>
-            <th className="text-center py-3 px-4 font-semibold border-b">
-              Basic
-            </th>
-            <th className="text-center py-3 px-4 bg-prime/70 font-semibold border-b">
-              Standard{" "}
-            </th>
-            <th className="text-center py-3 px-4 font-semibold border-b">
-              Advanced
-            </th>
-          </tr>
-        </thead>
-        <tbody className="divide-y divide-gray-200">
-          <tr>
-            <td className="py-3 px-4 font-medium">Pages</td>
-            <td className="text-center py-3 px-4">1</td>
-            <td className="text-center py-3 px-4 bg-blue-50">3-4</td>
-            <td className="text-center py-3 px-4">6+</td>
-          </tr>
-          <tr>
-            <td className="py-3 px-4 font-medium">Revisions</td>
-            <td className="text-center py-3 px-4">∞</td>
-            <td className="text-center py-3 px-4 bg-blue-50">∞</td>
-            <td className="text-center py-3 px-4">∞</td>
-          </tr>
-          <tr>
-            <td className="py-3 px-4 font-medium">Support</td>
-            <td className="text-center py-3 px-4">1 month</td>
-            <td className="text-center py-3 px-4 bg-blue-50">2 months</td>
-            <td className="text-center py-3 px-4">3 months</td>
-          </tr>
-          <tr>
-            <td className="py-3 px-4 font-medium">Best For</td>
-            <td className="text-center py-3 px-4">Portfolios</td>
-            <td className="text-center py-3 px-4 bg-blue-50">
-              Small Businesses
-            </td>
-            <td className="text-center py-3 px-4">Startups</td>
-          </tr>
-          <tr className="border-t-2 border-gray-300">
-            <td className="py-3 px-4 font-bold">From</td>
-            <td className="text-center py-3 px-4 font-bold text-lg">₹500</td>
-            <td className="text-center py-3 px-4 font-bold text-lg bg-blue-50 text-blue-600">
-              ₹800
-            </td>
-            <td className="text-center py-3 px-4 font-bold text-lg">₹1200</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+    <>
+      <p className="text-sm text-gray-600 py-2 text-center ">
+        Want a quick comparison?{" "}
+        <button
+          onClick={() => {
+            setIsTable((prev) => !prev);
+          }}
+        >
+          <span
+            className={`${
+              !IsTable ? "text-blue-600" : "text-blue-600/70"
+            } font-semibold `}
+          >
+            see feature table
+          </span>
+        </button>
+      </p>
+      {IsTable && (
+        <div className="overflow-x-auto no-scrollbar pb-5 px-5">
+          <table
+            data-aos="zoom-in"
+            className="w-full shadow-xs border-collapse overflow-hidden"
+          >
+            <thead className=" bg-prime/80 text-white">
+              <tr>
+                <th className="text-left py-3 px-4 font-semibold border-b">
+                  Features
+                </th>
+                <th className="text-center py-3 px-4 font-semibold border-b">
+                  Basic
+                </th>
+                <th className="text-center py-3 px-4 bg-prime/70 font-semibold border-b">
+                  Standard{" "}
+                </th>
+                <th className="text-center py-3 px-4 font-semibold border-b">
+                  Advanced
+                </th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-200">
+              <tr>
+                <td className="py-3 px-4 font-medium">Pages</td>
+                <td className="text-center py-3 px-4">1</td>
+                <td className="text-center py-3 px-4 bg-blue-50">3-4</td>
+                <td className="text-center py-3 px-4">6+</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-4 font-medium">Revisions</td>
+                <td className="text-center py-3 px-4">∞</td>
+                <td className="text-center py-3 px-4 bg-blue-50">∞</td>
+                <td className="text-center py-3 px-4">∞</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-4 font-medium">Support</td>
+                <td className="text-center py-3 px-4">1 month</td>
+                <td className="text-center py-3 px-4 bg-blue-50">2 months</td>
+                <td className="text-center py-3 px-4">3 months</td>
+              </tr>
+              <tr>
+                <td className="py-3 px-4 font-medium">Best For</td>
+                <td className="text-center py-3 px-4">Portfolios</td>
+                <td className="text-center py-3 px-4 bg-blue-50">
+                  Small Businesses
+                </td>
+                <td className="text-center py-3 px-4">Startups</td>
+              </tr>
+              <tr className="border-t-2 border-gray-300">
+                <td className="py-3 px-4 font-bold">From</td>
+                <td className="text-center py-3 px-4 font-bold text-lg">
+                  ₹500
+                </td>
+                <td className="text-center py-3 px-4 font-bold text-lg bg-blue-50 text-blue-600">
+                  ₹800
+                </td>
+                <td className="text-center py-3 px-4 font-bold text-lg">
+                  ₹1200
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      )}
+    </>
   );
 };
 
@@ -287,10 +327,26 @@ const Services = () => {
       <SectionHead title="Services" icon="ri-briefcase-fill" />
       <IntroPara />
       <div data-ui="packages" className="">
+        <h3 id="offerSet" className="p-3 mt-4 text-prime/85 text-lg font-black">
+          <i className="ri-price-tag-3-line"></i> <span>Website Packages</span>
+          <br />
+          <span className="text-2xl px-4 underline text-prime">
+            Tailored for You
+          </span>
+        </h3>
         <Packages gig={basicPack} color={"blue-200"} type={"basic"} />
         <Packages gig={standardPack} color={"amber-400"} type={"standard"} />
         <Packages gig={premiumPack} color={"violet-700"} type={"premium"} />
       </div>
+      <p className="px-4 text-gray-700/90">
+        All packages include{" "}
+        <b>
+          mobile-friendly designs, SEO basics, and 1-month post-delivery support
+        </b>
+        . Need something custom? <a href="#contact">Just ask!</a>
+      </p>
+      <PackagesTable />
+
       <div data-ui="testimonials" className="">
         <h2>What My Clients Say</h2>
         {testimonialData.map((testimonial, index) => (

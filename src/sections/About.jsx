@@ -108,9 +108,12 @@ const BioCard = () => (
     <div className="flex flex-col items-center">
       <div
         data-ui="myself-pic"
-        className="border-3 m-2 border-prime/70 rounded-full h-30 w-30 flex justify-center items-center"
+        className="border-3 m-4 relative border-prime/70 rounded-full h-30 w-30 flex justify-center items-center"
       >
         <i className="ri-user-line"></i>
+        <span className="absolute -bottom-2 -right-6 rounded-full text-sm bg-prime text-white px-4 py-1">
+          For Hire
+        </span>
       </div>
 
       <div>
