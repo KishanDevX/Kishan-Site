@@ -15,7 +15,7 @@ const SocialLink = ({ url, icon }) => (
 const AnimationSection = () => {
   return (
     <div
-      data-aos="zoom-in-down"
+      // data-aos="zoom-in-down"
       className="w-full lg:w-1/2 flex justify-center"
     >
       <Lottie
@@ -41,7 +41,7 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="w-[90%] lg:w-[80%] min-h-screen mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 py-20"
+      className="w-[90%] lg:w-[80%] min-h-screen  mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 py-20"
     >
       <AnimationSection />
 

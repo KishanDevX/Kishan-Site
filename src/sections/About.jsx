@@ -1,16 +1,11 @@
 import React from "react";
 import SectionHead from "../components/common/SectionHead";
+import SubHeading from "../components/common/SubHeading";
 
-const SectionTitle = ({ text, icon }) => (
-  <h2 className="text-2xl font-bold text-shadow-2xs text-prime flex items-center gap-2 mb-1">
-    {icon && <i className={icon}></i>}
-    {text}
-  </h2>
-);
-
+// about section components
 const IntroductionSection = () => (
   <div className="px-2 py-4 m-4">
-    <SectionTitle text="Who am I?" icon="ri-user-3-line" />
+    <SubHeading text="Who am I?" icon="ri-user-3-line" />
     <p className="text-gray-700/90 leading-relaxed dark:text-white/80">
       I'm a 17 years old <b>frontend specialist</b> building modern websites for
       small businesses and creators.
@@ -23,7 +18,7 @@ const IntroductionSection = () => (
 
 const WhatIDoSection = () => (
   <div className="px-2 py-4 m-4">
-    <SectionTitle text="My Approach" icon="ri-flask-line" />
+    <SubHeading text="My Approach" icon="ri-flask-line" />
     <ul>
       {[
         "Mobile-first designs that work flawlessly on all devices",
@@ -71,7 +66,7 @@ const SkillsSection = () => {
 
   return (
     <div className="px-2 py-4 m-4">
-      <SectionTitle text="My Toolkit" icon="ri-tools-line" />
+      <SubHeading text="My Toolkit" icon="ri-tools-line" />
 
       <div className="space-y-6">
         {skillGroups.map((group) => (
@@ -90,7 +85,7 @@ const SkillsSection = () => {
                   key={item}
                   data-aos="zoom-out-up"
                   data-aos-delay={`${idx * 300}`}
-                  className="bg-gray-100 text-prime px-3 py-1 rounded-full text-sm"
+                  className="bg-white shadow-xs text-prime px-3 py-1 rounded-full text-sm"
                 >
                   {item}
                 </li>
@@ -104,14 +99,14 @@ const SkillsSection = () => {
 };
 
 const BioCard = () => (
-  <div className="w-full mb-25">
+  <div className="w-full pb-25 ">
     <div className="flex flex-col items-center">
       <div
         data-ui="myself-pic"
         className="border-3 m-4 relative border-prime/70 rounded-full h-30 w-30 flex justify-center items-center"
       >
         <i className="ri-user-line"></i>
-        <span className="absolute -bottom-2 -right-6 rounded-full text-sm bg-prime text-white px-4 py-1">
+        <span className="absolute text-shadow-2xs -bottom-2 -right-6 rounded-full text-sm bg-prime text-white px-4 py-1">
           For Hire
         </span>
       </div>
@@ -134,7 +129,10 @@ const BioCard = () => (
         "Unlimited Revisions",
         "Self-Taught",
       ].map((tag) => (
-        <span className="bg-gray-100 px-3 py-1 rounded-2xl m-1" key={tag}>
+        <span
+          className="bg-white px-3 py-1 text-gray-800/80 shadow-sm rounded-2xl m-1"
+          key={tag}
+        >
           {tag}
         </span>
       ))}
@@ -147,9 +145,13 @@ const BioCard = () => (
   </div>
 );
 
+// main about section
 const About = () => {
   return (
-    <section id="about" className="w-full">
+    <section
+      id="about"
+      className="w-full bg-gradient-to-b from-white to-gray-100"
+    >
       <div>
         <SectionHead
           title="About Me"

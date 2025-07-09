@@ -1,28 +1,27 @@
-import React, { useState } from "react";
+import React from "react";
 import SectionHead from "../components/common/SectionHead";
 import Lottie from "lottie-react";
 import searchingAnimation from "../assets/Animations/searchingAnimation.json";
+import SubHeading from "../components/common/SubHeading";
 
 // common
 const ProjectType = ({ type, referencePara, icon, projects }) => {
   return (
     <section className="mb-15 p-4">
-      <h2 className="text-2xl font-bold text-prime">
-        <i className={icon}></i> {type}
-      </h2>
+      <SubHeading text={type} icon={icon} />
       <div className="flex py-4 overflow-x-auto no-scrollbar">
         {projects.map((project, index) => (
           <Project key={index} {...project} />
         ))}
       </div>
-      <p>{referencePara}</p>
+      <p className="text-gray-700/90">{referencePara}</p>
     </section>
   );
 };
 
 const Project = ({
   title,
-  image,
+  thumbnail,
   description,
   features,
   previewLink,
@@ -33,13 +32,19 @@ const Project = ({
       data-ui="project"
       data-aos="zoom-in-up"
       data-aos-duration="1000"
-      className="px-4 mx-2 mr-10 py-4 bg-white shadow-md shadow-gray-300/50 shrink-0 rounded-2xl"
+      className="px-4 mx-2 w-90 mr-10 py-4 bg-white shadow-md shadow-gray-300/50 shrink-0 rounded-2xl"
     >
-      <div
-        data-ui="image-display"
-        className="rounded-2xl h-40 bg-gray-300/70 mb-3"
-      >
-        <img src={image} alt={title} className="" />
+      <div data-ui="image-display" className="rounded-2xl h-40 flex gap-2 mb-3">
+        <img
+          src={thumbnail.mobileView}
+          alt={`${title} thumbnail 1`}
+          className="w-[30%] h-full object-cover bg-gray-300 rounded-md shadow-sm"
+        />
+        <img
+          src={thumbnail.desktopView}
+          alt={`${title} thumbnail 2`}
+          className="w-[70%] h-full object-cover bg-gray-300 rounded-md shadow-sm"
+        />
       </div>
       <h3 className="text-xl font-bold mb-2">{title}</h3>
 
@@ -76,7 +81,10 @@ const Projects = () => {
   const uiClones = [
     {
       title: "UI Clone 1",
-      image: "#",
+      thumbnail: {
+        mobileView: "#",
+        desktopView: "#",
+      },
       description: "A pixel-perfect clone of a popular UI design.",
       features: ["Responsive", "Accessible", "Cross-browser compatible"],
       previewLink: "#",
@@ -84,7 +92,10 @@ const Projects = () => {
     },
     {
       title: "UI Clone 1",
-      image: "#",
+      thumbnail: {
+        mobileView: "#",
+        desktopView: "#",
+      },
       description: "A pixel-perfect clone of a popular UI design.",
       features: ["Responsive", "Accessible", "Cross-browser compatible"],
       previewLink: "#",
@@ -92,7 +103,10 @@ const Projects = () => {
     },
     {
       title: "UI Clone 1",
-      image: "#",
+      thumbnail: {
+        mobileView: "#",
+        desktopView: "#",
+      },
       description: "A pixel-perfect clone of a popular UI design.",
       features: ["Responsive", "Accessible", "Cross-browser compatible"],
       previewLink: "#",
@@ -103,7 +117,11 @@ const Projects = () => {
   const problemSolvingApps = [
     {
       title: "Problem Solving App 1",
-      image: "#",
+
+      thumbnail: {
+        mobileView: "#",
+        desktopView: "#",
+      },
       description: "An app that solves a specific problem effectively.",
       features: ["Feature 1", "Feature 2", "Feature 3"],
       previewLink: "#",
@@ -111,7 +129,11 @@ const Projects = () => {
     },
     {
       title: "Problem Solving App 2",
-      image: "#",
+
+      thumbnail: {
+        mobileView: "#",
+        desktopView: "#",
+      },
       description: "An app that solves a specific problem effectively.",
       features: ["Feature 1", "Feature 2", "Feature 3"],
       previewLink: "#",
@@ -122,7 +144,10 @@ const Projects = () => {
   const clientProjects = [
     {
       title: "Business Template 1",
-      image: "#",
+      thumbnail: {
+        mobileView: "#",
+        desktopView: "#",
+      },
       description: "A template designed for business use.",
       features: ["Feature 1", "Feature 2", "Feature 3"],
       previewLink: "#",
@@ -130,7 +155,10 @@ const Projects = () => {
     },
     {
       title: "Business Template 1",
-      image: "#",
+      thumbnail: {
+        mobileView: "#",
+        desktopView: "#",
+      },
       description: "A template designed for business use.",
       features: ["Feature 1", "Feature 2", "Feature 3"],
       previewLink: "#",
@@ -148,7 +176,7 @@ const Projects = () => {
   };
 
   return (
-    <div id="projects" className="w-full bg-gray-50 mt-10 pb-30">
+    <div id="projects" className="w-full bg-gray-100 pb-30">
       <SectionHead title="My Projects" icon="ri-folder-fill" />
       <p className="text-gray-700/90 p-3 mb-5">
         A curated set of projects categorized to highlight different strengths —

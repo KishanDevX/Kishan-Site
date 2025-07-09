@@ -21,7 +21,11 @@ const Packages = ({ gig, type }) => {
   const [gigFeatures, setgigFeatures] = useState(false);
 
   return (
-    <div data-ui="packageGig" className="shadow-xl rounded-2xl mx-5 mb-15">
+    <div
+      data-ui="packageGig"
+      data-aos="zoom-in"
+      className="shadow-xl  rounded-2xl mx-5 mb-15"
+    >
       <div
         data-ui="screen"
         className={`${colors[type].bg} h-50 rounded-t-2xl m-1 flex flex-col justify-center items-center`}
@@ -49,9 +53,9 @@ const Packages = ({ gig, type }) => {
         >
           <span>what you get</span>
           {gigFeatures ? (
-            <i class="ri-arrow-drop-down-line text-2xl"></i>
+            <i className="ri-arrow-drop-down-line text-2xl"></i>
           ) : (
-            <i class="ri-arrow-drop-right-line text-2xl"></i>
+            <i className="ri-arrow-drop-right-line text-2xl"></i>
           )}
         </button>
         {gigFeatures && (
@@ -83,7 +87,7 @@ const Packages = ({ gig, type }) => {
               {gig.originPrice}
             </span>
           )}{" "}
-          {gig.price}
+          <span className="text-gray-800/80">{gig.price}</span>
         </h5>
         <br />
         <span className="text-red-500/70 text-sm">
@@ -124,7 +128,7 @@ const PackagesTable = () => {
   const [IsTable, setIsTable] = useState(false);
   return (
     <>
-      <p className="text-sm text-gray-600 py-2 text-center ">
+      <div className="text-sm text-gray-600 py-2 mb-4 text-center ">
         Want a quick comparison?{" "}
         <button
           onClick={() => {
@@ -139,7 +143,7 @@ const PackagesTable = () => {
             see feature table
           </span>
         </button>
-      </p>
+      </div>
       {IsTable && (
         <div className="overflow-x-auto no-scrollbar pb-5 px-5">
           <table
@@ -206,6 +210,55 @@ const PackagesTable = () => {
         </div>
       )}
     </>
+  );
+};
+
+const FAQSection = () => {
+  const faqList = [
+    {
+      que: "1) what if i don't get responses from you?",
+      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+    },
+    {
+      que: "2) what if i don't get responses from you?",
+      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+    },
+    {
+      que: "3) what if i don't get responses from you?",
+      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+    },
+    {
+      que: "4) what if i don't get responses from you?",
+      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+    },
+  ];
+
+  const [openIndex, setOpenIndex] = useState(null);
+
+  const toggleAnswer = (idx) => {
+    setOpenIndex((prev) => (prev === idx ? null : idx));
+  };
+
+  return (
+    <div data-ui="FAQs" className="">
+      {faqList.map((pair, idx) => {
+        return (
+          <div key={`pair${idx}`}>
+            <button
+              onClick={() => {
+                toggleAnswer(idx);
+              }}
+            >
+              {pair.que}
+            </button>
+            <br />
+            {openIndex === idx && (
+              <p className="mt-2 text-gray-700 text-sm">{pair.ans}</p>
+            )}
+          </div>
+        );
+      })}
+    </div>
   );
 };
 
@@ -323,7 +376,10 @@ const Services = () => {
   ];
 
   return (
-    <div id="services" className="w-full">
+    <div
+      id="services"
+      className="bg-gradient-to-b from-gray-100 to-white w-full"
+    >
       <SectionHead title="Services" icon="ri-briefcase-fill" />
       <IntroPara />
       <div data-ui="packages" className="">
@@ -346,7 +402,7 @@ const Services = () => {
         . Need something custom? <a href="#contact">Just ask!</a>
       </p>
       <PackagesTable />
-
+      <FAQSection />
       <div data-ui="testimonials" className="">
         <h2>What My Clients Say</h2>
         {testimonialData.map((testimonial, index) => (
