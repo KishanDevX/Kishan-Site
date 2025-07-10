@@ -138,7 +138,7 @@ const BioCard = () => (
       ))}
     </div>
     <div className="w-full flex justify-center mt-4">
-      <a className="bg-prime text-white px-2 py-1 rounded-md" href="#projects">
+      <a className="bg-prime text-white px-4 py-1 rounded-md" href="#projects">
         <i className="ri-folder-5-line"></i> View Projects
       </a>
     </div>

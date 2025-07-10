@@ -76,6 +76,40 @@ const Project = ({
   );
 };
 
+const ServicesIntroducer = () => {
+  return (
+    <div
+      data-ui="services-introducer"
+      className="flex flex-col items-center text-center px-6 gap-4"
+    >
+      <Lottie
+        animationData={searchingAnimation}
+        loop={true}
+        className="w-full max-w-sm"
+      />
+      <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
+        Exploring project ideas or have a <br />
+        <span className="bg-yellow-300/70 px-1 text-black font-medium rounded">
+          custom vision
+        </span>{" "}
+        in mind? Let's shape it into reality—your dream design is just a
+        conversation away.
+      </p>
+      <div className="flex gap-4">
+        <a href="#contact" className="p-1 text-blue-600">
+          start a conversation
+        </a>
+        <a
+          href="#offerSet"
+          className="py-1 px-4 bg-emerald-400 rounded-md text-white"
+        >
+          view packages
+        </a>
+      </div>
+    </div>
+  );
+};
+
 // main projects Section
 const Projects = () => {
   const uiClones = [
@@ -201,28 +235,7 @@ const Projects = () => {
         projects={clientProjects}
         referencePara={explainPara.clientTemplates}
       />
-      <Lottie
-        animationData={searchingAnimation}
-        loop={true}
-        className="w-full max-w-md"
-      />
-      <p className="px-5 text-gray-600 text-md pb-10">
-        Still browsing through different website styles and have a{" "}
-        <span className="bg-yellow-200/100 text-black px-1">custom idea</span>{" "}
-        in mind?
-        <br />
-        <br />
-        <a href="#contact" className="text-blue-600 font-medium">
-          Let's talk
-        </a>{" "}
-        and bring your unique vision to life.
-      </p>
-      <a
-        href="#offerSet"
-        className="bg-emerald-500 hover:bg-emerald-600 transition px-4 py-2 ml-10 rounded-md font-semibold text-white"
-      >
-        View Packages
-      </a>
+      <ServicesIntroducer />
     </div>
   );
 };

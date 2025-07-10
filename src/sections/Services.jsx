@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SectionHead from "../components/common/SectionHead";
+import SubHeading from "../components/common/SubHeading";
 
 //common
 const Packages = ({ gig, type }) => {
@@ -216,20 +217,44 @@ const PackagesTable = () => {
 const FAQSection = () => {
   const faqList = [
     {
-      que: "1) what if i don't get responses from you?",
-      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+      que: "Do I need to buy hosting or a domain separately?",
+      ans: "If you don't have them already, I'll guide you step-by-step on how and where to buy them affordably. I don't sell hosting myself, but I help set it up for you as part of the service.",
     },
     {
-      que: "2) what if i don't get responses from you?",
-      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+      que: "I don't understand tech stuff, can I still get a website?",
+      ans: "Yes, absolutely! You don't need to know anything technical. Just tell me what your business or goal is, and I'll take care of the rest—design, setup, and even minor edits.",
     },
     {
-      que: "3) what if i don't get responses from you?",
-      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+      que: "Will I be able to update the website myself later?",
+      ans: "I usually build hand-coded websites. If you want to make changes later (like updating text or images), I can either help you or guide you with easy instructions.",
     },
     {
-      que: "4) what if i don't get responses from you?",
-      ans: "  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facil dolore magni debitis libero unde vitae, perferendis nam ab quisquam nihil sunt dolor, deserunt laborum ",
+      que: "Are there any hidden or extra charges later?",
+      ans: "Nope! Everything is clearly mentioned in the package. You only pay once. If you ask for something totally new outside the package later, we'll discuss it first.",
+    },
+    {
+      que: "What if I don't like the first version you send?",
+      ans: "That's okay! You get unlimited revisions within the support period. I'll keep tweaking it until you're fully satisfied—your happiness comes first.",
+    },
+    {
+      que: "Can I see some samples before ordering?",
+      ans: "Yes! Just message me and I'll share live examples or previews of websites I've made before, so you can feel confident in what you'll get.",
+    },
+    {
+      que: "What if I already have a design idea or sketch?",
+      ans: "Perfect! You can share any references, sketches, or ideas you have. I'll convert your vision into a real website exactly how you imagined it.",
+    },
+    {
+      que: "Will my website show up on Google?",
+      ans: "Yes, your site will be structured in a Google-friendly way. For basic packages, I include SEO-ready code. For deeper SEO help, I can guide you separately too.",
+    },
+    {
+      que: "What happens after you deliver the website?",
+      ans: "You get full access to your files. I also provide free support for a few weeks, depending on the package, in case you need help or minor changes.",
+    },
+    {
+      que: "Can you make it look good on mobile too?",
+      ans: "Of course! Every site I build is fully mobile-friendly. It'll work smoothly on phones, tablets, and desktops.",
     },
   ];
 
@@ -239,25 +264,64 @@ const FAQSection = () => {
     setOpenIndex((prev) => (prev === idx ? null : idx));
   };
 
+  const [faqLimit, setfaqLimit] = useState(4);
+
   return (
-    <div data-ui="FAQs" className="">
+    <div data-ui="FAQs" className="px-5 my-7">
+      <SubHeading text={"FAQs"} icon={"ri-questionnaire-line"} />
       {faqList.map((pair, idx) => {
-        return (
-          <div key={`pair${idx}`}>
-            <button
-              onClick={() => {
-                toggleAnswer(idx);
-              }}
+        if (idx < faqLimit) {
+          return (
+            <div
+              data-ui="faq-Pair"
+              data-aos="zoom-in-right"
+              data-aos-duration={`${idx * 200}`}
+              className="w-full flex flex-col justify-center mb-2"
+              key={`pair${idx}`}
             >
-              {pair.que}
-            </button>
-            <br />
-            {openIndex === idx && (
-              <p className="mt-2 text-gray-700 text-sm">{pair.ans}</p>
-            )}
-          </div>
-        );
+              <button
+                onClick={() => {
+                  toggleAnswer(idx);
+                }}
+                className="bg-gradient-to-r flex z-3 backdrop-blur-2xl text-left from-prime to-prime/60 py-2 text-white shadow-xs w-full"
+              >
+                <span className="w-[90%] px-4">{pair.que}</span>
+                <span className="w-[10%] flex items-center">
+                  {openIndex === idx ? (
+                    <i class="ri-arrow-down-s-fill"></i>
+                  ) : (
+                    <i className="ri-arrow-right-s-fill"></i>
+                  )}
+                </span>
+              </button>
+              {openIndex === idx && (
+                <p
+                  data-aos="fade-down"
+                  className="px-5 py-2 text-gray-500 bg-white shadow-sm text-sm"
+                >
+                  {pair.ans}
+                </p>
+              )}
+            </div>
+          );
+        }
       })}
+      <button>
+        {faqLimit < faqList.length ? (
+          <span
+            className="text-prime/80"
+            onClick={() => {
+              setfaqLimit(faqLimit + 4);
+            }}
+          >
+            show more...
+          </span>
+        ) : (
+          <span className="text-gray-500/80" onClick={() => setfaqLimit(4)}>
+            ...show less
+          </span>
+        )}
+      </button>
     </div>
   );
 };
