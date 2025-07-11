@@ -14,10 +14,7 @@ const SocialLink = ({ url, icon }) => (
 // home section components
 const AnimationSection = () => {
   return (
-    <div
-      // data-aos="zoom-in-down"
-      className="w-full lg:w-1/2 flex justify-center"
-    >
+    <div className="w-full lg:w-1/2 flex justify-center">
       <Lottie
         animationData={codingAnimation}
         loop={true}

@@ -3,7 +3,7 @@ import SectionHead from "../components/common/SectionHead";
 import SubHeading from "../components/common/SubHeading";
 
 //common
-const Packages = ({ gig, type }) => {
+const Package = ({ gig, type }) => {
   const colors = {
     basic: {
       bg: "bg-blue-300",
@@ -102,6 +102,21 @@ const Packages = ({ gig, type }) => {
             Order Now
           </a>
         </div>
+      </div>
+    </div>
+  );
+};
+
+const Testimonial = ({ pic, name, feedback, rating }) => {
+  return (
+    <div className="testimonial">
+      <img src={pic} alt={name} />
+      <h4>{name}</h4>
+      <p>{feedback}</p>
+      <div className="rating">
+        {Array.from({ length: rating }, (_, i) => (
+          <i key={i} className="ri-star-fill"></i>
+        ))}
       </div>
     </div>
   );
@@ -288,7 +303,7 @@ const FAQSection = () => {
                 <span className="w-[90%] px-4">{pair.que}</span>
                 <span className="w-[10%] flex items-center">
                   {openIndex === idx ? (
-                    <i class="ri-arrow-down-s-fill"></i>
+                    <i className="ri-arrow-down-s-fill"></i>
                   ) : (
                     <i className="ri-arrow-right-s-fill"></i>
                   )}
@@ -347,17 +362,40 @@ const LimitedOffer = () => {
   );
 };
 
-const Testimonial = ({ pic, name, feedback, rating }) => {
+const TestimonialSection = () => {
+  const testimonialData = [
+    {
+      pic: "#",
+      name: "John Doe",
+      feedback: "Kishan did an amazing job on my website!",
+      rating: 5,
+    },
+    {
+      pic: "#",
+      name: "Jane Smith",
+      feedback: "Highly recommend! Professional and quick.",
+      rating: 4,
+    },
+    {
+      pic: "#",
+      name: "Alice Johnson",
+      feedback: "Great service, very satisfied with the results.",
+      rating: 5,
+    },
+  ];
   return (
-    <div className="testimonial">
-      <img src={pic} alt={name} />
-      <h4>{name}</h4>
-      <p>{feedback}</p>
-      <div className="rating">
-        {Array.from({ length: rating }, (_, i) => (
-          <i key={i} className="ri-star-fill"></i>
-        ))}
-      </div>
+    <div data-ui="testimonials" className="px-5">
+      <SubHeading text="testimonials" icon="ri-question-answer-fill" />
+      <h2 className="text-gray-600/90">(What My Clients Say)</h2>
+      {testimonialData.map((testimonial, index) => (
+        <Testimonial
+          key={index}
+          pic={testimonial.pic}
+          name={testimonial.name}
+          feedback={testimonial.feedback}
+          rating={testimonial.rating}
+        />
+      ))}
     </div>
   );
 };
@@ -418,27 +456,6 @@ const Services = () => {
     link: "#",
   };
 
-  const testimonialData = [
-    {
-      pic: "#",
-      name: "John Doe",
-      feedback: "Kishan did an amazing job on my website!",
-      rating: 5,
-    },
-    {
-      pic: "#",
-      name: "Jane Smith",
-      feedback: "Highly recommend! Professional and quick.",
-      rating: 4,
-    },
-    {
-      pic: "#",
-      name: "Alice Johnson",
-      feedback: "Great service, very satisfied with the results.",
-      rating: 5,
-    },
-  ];
-
   return (
     <div
       id="services"
@@ -454,9 +471,9 @@ const Services = () => {
             Tailored for You
           </span>
         </h3>
-        <Packages gig={basicPack} color={"blue-200"} type={"basic"} />
-        <Packages gig={standardPack} color={"amber-400"} type={"standard"} />
-        <Packages gig={premiumPack} color={"violet-700"} type={"premium"} />
+        <Package gig={basicPack} color={"blue-200"} type={"basic"} />
+        <Package gig={standardPack} color={"amber-400"} type={"standard"} />
+        <Package gig={premiumPack} color={"violet-700"} type={"premium"} />
       </div>
       <p className="px-4 text-gray-700/90">
         All packages include{" "}
@@ -467,18 +484,7 @@ const Services = () => {
       </p>
       <PackagesTable />
       <FAQSection />
-      <div data-ui="testimonials" className="">
-        <h2>What My Clients Say</h2>
-        {testimonialData.map((testimonial, index) => (
-          <Testimonial
-            key={index}
-            pic={testimonial.pic}
-            name={testimonial.name}
-            feedback={testimonial.feedback}
-            rating={testimonial.rating}
-          />
-        ))}
-      </div>
+      <TestimonialSection />
       <LimitedOffer />
     </div>
   );

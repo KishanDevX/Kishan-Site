@@ -6,6 +6,7 @@ import Projects from "./sections/Projects";
 import Services from "./sections/Services";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Contact from "./sections/Contact";
 
 const App = () => {
   useEffect(() => {
@@ -20,6 +21,7 @@ const App = () => {
         <About />
         <Projects />
         <Services />
+        <Contact />
       </main>
       <button
         data-ui="themeToggle"
