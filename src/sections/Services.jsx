@@ -109,14 +109,28 @@ const Package = ({ gig, type }) => {
 
 const Testimonial = ({ pic, name, feedback, rating }) => {
   return (
-    <div className="testimonial">
-      <img src={pic} alt={name} />
-      <h4>{name}</h4>
-      <p>{feedback}</p>
-      <div className="rating">
-        {Array.from({ length: rating }, (_, i) => (
-          <i key={i} className="ri-star-fill"></i>
-        ))}
+    <div
+      data-ui="testimonial"
+      className=" bg-white rounded-lg mx-8 mt-2 p-3 shadow-xs"
+    >
+      <div data-ui="clientPic" className="flex justify-center items-center">
+        <img
+          src={pic}
+          alt={name}
+          className="rounded-full border-2 border-black h-15 w-15 m-3"
+        />
+      </div>
+      <div data-ui="clientsTextData" className="flex flex-col items-center">
+        <h4 className="text-prime font-bold">{name}</h4>
+        <p className="px-3 text-gray-800/90 text-center mt-2">{feedback}</p>
+        <div className="rating">
+          {Array.from({ length: rating }, (_, i) => (
+            <i
+              key={i}
+              className="ri-star-fill text-yellow-300 text-shadow-2xs"
+            ></i>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -298,7 +312,7 @@ const FAQSection = () => {
                 onClick={() => {
                   toggleAnswer(idx);
                 }}
-                className="bg-gradient-to-r flex z-3 backdrop-blur-2xl text-left from-prime to-prime/60 py-2 text-white shadow-xs w-full"
+                className="bg-gradient-to-r flex z-3 backdrop-blur-6xl text-left from-prime to-prime/60 py-2 text-white shadow-xs w-full"
               >
                 <span className="w-[90%] px-4">{pair.que}</span>
                 <span className="w-[10%] flex items-center">
@@ -387,15 +401,17 @@ const TestimonialSection = () => {
     <div data-ui="testimonials" className="px-5">
       <SubHeading text="testimonials" icon="ri-question-answer-fill" />
       <h2 className="text-gray-600/90">(What My Clients Say)</h2>
-      {testimonialData.map((testimonial, index) => (
-        <Testimonial
-          key={index}
-          pic={testimonial.pic}
-          name={testimonial.name}
-          feedback={testimonial.feedback}
-          rating={testimonial.rating}
-        />
-      ))}
+      <div data-ui="feedBackBox" className="">
+        {testimonialData.map((testimonial, index) => (
+          <Testimonial
+            key={index}
+            pic={testimonial.pic}
+            name={testimonial.name}
+            feedback={testimonial.feedback}
+            rating={testimonial.rating}
+          />
+        ))}
+      </div>
     </div>
   );
 };
@@ -471,9 +487,9 @@ const Services = () => {
             Tailored for You
           </span>
         </h3>
-        <Package gig={basicPack} color={"blue-200"} type={"basic"} />
-        <Package gig={standardPack} color={"amber-400"} type={"standard"} />
-        <Package gig={premiumPack} color={"violet-700"} type={"premium"} />
+        <Package gig={basicPack} type={"basic"} />
+        <Package gig={standardPack} type={"standard"} />
+        <Package gig={premiumPack} type={"premium"} />
       </div>
       <p className="px-4 text-gray-700/90">
         All packages include{" "}

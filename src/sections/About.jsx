@@ -153,11 +153,7 @@ const About = () => {
       className="w-full bg-gradient-to-b from-white to-gray-100"
     >
       <div>
-        <SectionHead
-          title="About Me"
-          icon="ri-id-card-fill"
-          subtitle="Why I'm different from template-based developers"
-        />
+        <SectionHead title="About Me" icon="ri-id-card-fill" />
 
         <div>
           <div>

@@ -4,7 +4,6 @@ import MobileNav from "./MobileNav";
 const Header = () => {
   const [showHeader, setShowHeader] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
-  // const [IsNav, setIsNav] = useState(false);
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -25,7 +24,6 @@ const Header = () => {
   }, [lastScrollY]);
 
   const [showNav, setshowNav] = useState(false);
-
   return (
     <>
       <header
