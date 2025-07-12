@@ -1,28 +1,112 @@
 import React from "react";
 import SectionHead from "../components/common/SectionHead";
 
+// contact section components
 const ContactForm = () => {
   return (
     <form>
-      <label htmlFor="name">
-        <span>your name:</span>
-        <input type="text" id="name" />
-      </label>
-      <label htmlFor="name">
-        <span>subject:</span>
-        <input type="text" id="name" />
-        <ul>
-          <li></li>
-        </ul>
-      </label>
+      <input
+        type="text"
+        placeholder="Your Name"
+        className="w-full bg-white p-3 mb-3 border rounded-lg"
+        required
+      />
+      <input
+        type="email"
+        placeholder="Email ID"
+        className="w-full bg-white p-3 mb-3 border rounded-lg"
+        required
+      />
+      <select className="w-full bg-white p-3 mb-3 border rounded-lg">
+        <option>I'm interested in...</option>
+        <option>Basic Website (₹500)</option>
+        <option>Business Website (₹800)</option>
+        <option>Custom Project</option>
+      </select>
+      <textarea
+        placeholder="Tell me about your project..."
+        rows="4"
+        className="w-full bg-white p-3 mb-3 border rounded-lg"
+      ></textarea>
+      <button
+        type="submit"
+        className="bg-prime text-white py-2 px-6 rounded-lg"
+      >
+        Submit your Consultation
+      </button>
     </form>
   );
 };
 
+const QuickContact = () => {
+  return (
+    <>
+      <h3 className="text-xl font-bold mb-4">Quick Connect</h3>
+      <div className="space-y-4">
+        <a
+          href="tel:+91YOURNUMBER"
+          className="flex items-center bg-white/60 shadow-2xs gap-3 p-3 rounded-lg hover:bg-gray-50"
+        >
+          <div className="bg-prime/10 text-prime rounded-full h-10 w-10 flex items-center justify-center">
+            <i className="ri-phone-line"></i>
+          </div>
+          <span>+91 XXXXX XXXXX</span>
+        </a>
+
+        <a
+          href="https://wa.me/91YOURNUMBER"
+          className="flex items-center bg-white/60 shadow-2xs gap-3 p-3 rounded-lg hover:bg-gray-50"
+        >
+          <div className="bg-green-100 text-green-600 rounded-full h-10 w-10 flex items-center justify-center">
+            <i className="ri-whatsapp-line"></i>
+          </div>
+          <span>Chat on WhatsApp</span>
+        </a>
+
+        <div className="flex items-center bg-white/60 shadow-2xs gap-3 p-3 rounded-lg">
+          <div className="bg-blue-100 text-blue-600 rounded-full h-10 w-10 flex items-center justify-center">
+            <i className="ri-map-pin-line"></i>
+          </div>
+          <span>Imambada, Mirzapur</span>
+        </div>
+      </div>
+    </>
+  );
+};
+
+const Availability = () => {
+  return (
+    <div className="my-6 bg-yellow-50 p-4 rounded-lg border border-yellow-400">
+      <h4 className="font-bold flex items-center gap-2">
+        <i className="ri-time-line"></i> Availability
+      </h4>
+      <p className="text-sm text-gray-800/80 mt-2">
+        <span className="text-yellow-400">Mon-Sat:</span> 10AM - 7PM
+        <br />
+        <span className="text-yellow-400">Fastest response:</span> Via WhatsApp
+      </p>
+    </div>
+  );
+};
+
+// main contact section
 const Contact = () => {
   return (
-    <div id="contact">
-      <ContactForm />
+    <div id="contact" className="w-full pb-30 bg-blue-50">
+      <SectionHead title="Contact" icon="ri-phone-fill" />
+      <div className="grid md:grid-cols-2 gap-6 px-5 mt-4">
+        {/* Left Side - Form */}
+        <div>
+          <h3 className="text-xl font-bold mb-4">Send a Message</h3>
+          <ContactForm />
+        </div>
+
+        {/* Right Side - Direct Contacts */}
+        <div>
+          <QuickContact />
+          <Availability />
+        </div>
+      </div>
     </div>
   );
 };

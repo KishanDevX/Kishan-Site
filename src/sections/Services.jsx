@@ -111,18 +111,14 @@ const Testimonial = ({ pic, name, feedback, rating }) => {
   return (
     <div
       data-ui="testimonial"
-      className=" bg-white rounded-lg mx-8 mt-2 p-3 shadow-xs"
+      className=" bg-white rounded-lg mx-4 mt-5 p-3 shadow-xs"
     >
       <div data-ui="clientPic" className="flex justify-center items-center">
-        <img
-          src={pic}
-          alt={name}
-          className="rounded-full border-2 border-black h-15 w-15 m-3"
-        />
+        <img src={pic} alt={name} className="rounded-full h-15 w-15" />
       </div>
       <div data-ui="clientsTextData" className="flex flex-col items-center">
         <h4 className="text-prime font-bold">{name}</h4>
-        <p className="px-3 text-gray-800/90 text-center mt-2">{feedback}</p>
+        <p className="px-3 text-gray-800/90 mt-2">{feedback}</p>
         <div className="rating">
           {Array.from({ length: rating }, (_, i) => (
             <i
@@ -355,22 +351,54 @@ const FAQSection = () => {
   );
 };
 
-const LimitedOffer = () => {
+const LaunchOfferAd = () => {
   return (
-    <div className="bg-blue-50 p-4 rounded-lg border border-blue-200">
-      <h3 className="font-bold text-lg">🚀 Special Launch Offer</h3>
-      <p>
-        <b>Only 3 slots left</b> at these prices! As my skills grow, rates will
-        increase—but if you order now, you're <b>locked into current pricing</b>{" "}
-        with priority support.
+    <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 shadow-sm">
+      <h3 className="font-semibold text-xl text-blue-900 mb-2">
+        Special Launch Offer
+      </h3>
+      <p className="text-gray-800 leading-relaxed">
+        <strong>Only few slots available</strong> at introductory rates. As my
+        services and expertise expand, pricing will adjust accordingly. Secure
+        your project now to <strong>lock in the current rate</strong> and enjoy
+        priority support.
       </p>
-      <p className="mt-2">
-        ⏳ <b>Deadline</b>:{" "}
+      <p className="mt-3 text-sm text-blue-700">
+        <strong>Valid Until:</strong>{" "}
         {new Date().toLocaleDateString("en-IN", {
           day: "numeric",
           month: "long",
         })}{" "}
-        or until slots fill up.
+        or until slots are fully booked.
+      </p>
+    </div>
+  );
+};
+
+const FeedbackDiscountAd = () => {
+  return (
+    <div className="bg-green-50 p-6 rounded-xl border border-green-200 shadow-sm">
+      <h3 className="font-semibold text-xl text-green-900 mb-2">
+        Feedback-Based Discount
+      </h3>
+      <p className="text-gray-800 leading-relaxed">
+        The <strong>first 5 clients</strong> will receive a{" "}
+        <strong>30% discount</strong> in return for a detailed review of the
+        service. Your insights help me improve while you save on premium-quality
+        work.
+      </p>
+      <div className="mt-3 text-sm text-green-800">
+        <p>
+          <strong>What You Provide:</strong> A brief, honest review after
+          project delivery.
+        </p>
+        <p className="mt-1">
+          <strong>What You Get:</strong> Premium quality at - <br /> ₹350
+          (Basic) / ₹560 (Standard).
+        </p>
+      </div>
+      <p className="mt-3 text-sm text-green-700">
+        <strong>Offer Ends:</strong> After 5 qualifying orders.
       </p>
     </div>
   );
@@ -379,21 +407,25 @@ const LimitedOffer = () => {
 const TestimonialSection = () => {
   const testimonialData = [
     {
-      pic: "#",
+      pic: "https://i.pravatar.cc/150?img=3",
       name: "John Doe",
-      feedback: "Kishan did an amazing job on my website!",
+      feedback:
+        "Kishan did an amazing job on my website! explicabo nemo optio quisquam doloremque quia sapiente, ipsam praesentium libero sequi asperiores dolor consequuntur facilis veniam. Deleniti fugit ad minima unde!",
       rating: 5,
     },
     {
-      pic: "#",
+      pic: "https://i.pravatar.cc/150?img=5",
       name: "Jane Smith",
-      feedback: "Highly recommend! Professional and quick.",
+      feedback:
+        "Highly recommend! Professional and quick. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi explicabo nemo optio quisquam doloremque quia sapiente, ipsam praesentium libero sequi asperiores dolor consequuntur facilis veniam. Deleniti fugit ad minima unde!",
       rating: 4,
     },
     {
-      pic: "#",
+      pic: "https://i.pravatar.cc/150?img=7",
       name: "Alice Johnson",
-      feedback: "Great service, very satisfied with the results.",
+
+      feedback:
+        " Great service, very satisfied with the results. Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi explicabo nemo optio quisquam doloremque quia sapiente, ipsam praesentium libero sequi asperiores dolor consequuntur facilis veniam. Deleniti fugit ad minima unde!",
       rating: 5,
     },
   ];
@@ -501,7 +533,14 @@ const Services = () => {
       <PackagesTable />
       <FAQSection />
       <TestimonialSection />
-      <LimitedOffer />
+
+      <div className="py-20 px-5">
+        <SubHeading text="Latest offers & updates" icon="ri-fire-line" />
+        <div data-ui="updatesBox" className="py-4 flex flex-col gap-5">
+          <LaunchOfferAd />
+          <FeedbackDiscountAd />
+        </div>
+      </div>
     </div>
   );
 };

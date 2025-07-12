@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from "react";
 
+// mobile nav sub components
 const NavItem = ({ name, icon, locateTo, exitNav }) => {
   return (
     <li>
@@ -51,6 +52,7 @@ const ToggleTheme = () => {
   );
 };
 
+// main mobile nav
 const MobileNav = ({ show, onClose }) => {
   const navRef = useRef();
 
@@ -79,7 +81,7 @@ const MobileNav = ({ show, onClose }) => {
 
       <nav
         ref={navRef}
-        className={`fixed flex flex-col h-screen shadow-gray-800 shadow-2xl rounded-tl-2xl w-[60%] bg-gradient-to-l from-prime to-[#5c3ccf] z-[100] right-0 transition-transform duration-300 ease-in-out ${
+        className={`fixed flex flex-col h-screen shadow-gray-800 shadow-xs rounded-tl-2xl w-[60%] bg-gradient-to-l from-prime to-[#5c3ccf] z-[100] right-0 transition-transform duration-300 ease-in-out ${
           show ? "translate-x-0" : "translate-x-full"
         }`}
       >

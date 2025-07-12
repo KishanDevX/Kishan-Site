@@ -235,7 +235,7 @@ const Projects = () => {
         projects={clientProjects}
         referencePara={explainPara.clientTemplates}
       />
-      <ServicesIntroducer />
+      {/* <ServicesIntroducer /> */}
     </div>
   );
 };
