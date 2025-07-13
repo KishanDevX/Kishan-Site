@@ -54,8 +54,7 @@ const SkillsSection = () => {
     {
       name: "Development Tools",
       items: ["Git/GitHub", "VS Code", "Figma", "Vite", "NPM"],
-      description:
-        "My professional toolkit for creating and managing your project",
+      description: "My go-to toolkit for creating and managing your project",
     },
     {
       name: "Deployment Platforms",
@@ -85,7 +84,7 @@ const SkillsSection = () => {
                   key={item}
                   data-aos="zoom-out-up"
                   data-aos-delay={`${idx * 300}`}
-                  className="bg-white shadow-xs text-prime px-3 py-1 rounded-full text-sm"
+                  className="bg-white dark:bg-gray-600 shadow-xs text-prime dark:text-purple-300 px-3 py-1 rounded-full text-sm"
                 >
                   {item}
                 </li>
@@ -103,7 +102,7 @@ const BioCard = () => (
     <div className="flex flex-col items-center">
       <div
         data-ui="myself-pic"
-        className="border-3 m-4 relative border-prime/70 rounded-full h-30 w-30 flex justify-center items-center"
+        className="border-3 bg-gray-200/60 m-4 relative border-prime/70 rounded-full h-30 w-30 flex justify-center items-center"
       >
         <i className="ri-user-line"></i>
         <span className="absolute text-shadow-2xs -bottom-2 -right-6 rounded-full text-sm bg-prime text-white px-4 py-1">
@@ -130,7 +129,7 @@ const BioCard = () => (
         "Self-Taught",
       ].map((tag) => (
         <span
-          className="bg-white px-3 py-1 text-gray-800/80 shadow-sm rounded-2xl m-1"
+          className="bg-white dark:bg-white/30 px-3 py-1 text-gray-800/80 dark:text-white/80 shadow-sm rounded-2xl m-1"
           key={tag}
         >
           {tag}
@@ -138,7 +137,7 @@ const BioCard = () => (
       ))}
     </div>
     <div className="w-full flex justify-center mt-4">
-      <a className="bg-prime text-white px-4 py-1 rounded-md" href="#projects">
+      <a className="bg-prime text-white px-4 py-1 rounded-xl" href="#projects">
         <i className="ri-folder-5-line"></i> View Projects
       </a>
     </div>
@@ -150,7 +149,7 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full bg-gradient-to-b from-white to-gray-100"
+      className="w-full bg-gradient-to-b from-white to-gray-100 dark:from-gray-900 dark:to-gray-700"
     >
       <div>
         <SectionHead title="About Me" icon="ri-id-card-fill" />

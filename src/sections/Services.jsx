@@ -25,7 +25,7 @@ const Package = ({ gig, type }) => {
     <div
       data-ui="packageGig"
       data-aos="zoom-in"
-      className="shadow-xl  rounded-2xl mx-5 mb-15"
+      className="shadow-xl bg-white dark:bg-gray-800 rounded-2xl mx-5 mb-15"
     >
       <div
         data-ui="screen"
@@ -38,12 +38,13 @@ const Package = ({ gig, type }) => {
         <h2 className="text-white/80">{gig.title}</h2>
       </div>
       <div data-ui="textPart" className="p-4">
-        <span className="text-gray-600/90">
-          <b className="text-gray-600">For:</b> {gig.for}
+        <span className="text-gray-600/90 dark:text-white/70">
+          <b className="text-gray-600 dark:text-white/90">For:</b> {gig.for}
         </span>
         <br />
-        <span className="text-gray-600/90">
-          <b className="text-gray-600">Perfect for:</b> {gig.perfectFor}
+        <span className="text-gray-600/90 dark:text-white/70">
+          <b className="text-gray-600 dark:text-white/90">Perfect for:</b>{" "}
+          {gig.perfectFor}
         </span>
         <br />
         <button
@@ -73,7 +74,12 @@ const Package = ({ gig, type }) => {
                     className={`${colors[type].text} ri-check-line`}
                     key={index}
                   ></i>{" "}
-                  <span key={`${index} part`}>{give}</span>
+                  <span
+                    key={`${index} part`}
+                    className="text-black dark:text-white/90"
+                  >
+                    {give}
+                  </span>
                 </li>
               );
             })}
@@ -88,7 +94,9 @@ const Package = ({ gig, type }) => {
               {gig.originPrice}
             </span>
           )}{" "}
-          <span className="text-gray-800/80">{gig.price}</span>
+          <span className="text-gray-800/80 dark:text-white/90">
+            {gig.price}
+          </span>
         </h5>
         <br />
         <span className="text-red-500/70 text-sm">
@@ -111,14 +119,16 @@ const Testimonial = ({ pic, name, feedback, rating }) => {
   return (
     <div
       data-ui="testimonial"
-      className=" bg-white rounded-lg mx-4 mt-5 p-3 shadow-xs"
+      className=" bg-white dark:bg-gray-500 rounded-lg mx-4 mt-5 p-3 shadow-xs"
     >
       <div data-ui="clientPic" className="flex justify-center items-center">
         <img src={pic} alt={name} className="rounded-full h-15 w-15" />
       </div>
       <div data-ui="clientsTextData" className="flex flex-col items-center">
-        <h4 className="text-prime font-bold">{name}</h4>
-        <p className="px-3 text-gray-800/90 mt-2">{feedback}</p>
+        <h4 className="text-prime dark:text-blue-400 font-bold">{name}</h4>
+        <p className="px-3 text-gray-800/90 dark:text-white/80 mt-2">
+          {feedback}
+        </p>
         <div className="rating">
           {Array.from({ length: rating }, (_, i) => (
             <i
@@ -136,7 +146,7 @@ const Testimonial = ({ pic, name, feedback, rating }) => {
 const IntroPara = () => {
   return (
     <>
-      <p className="p-5 text-lg text-gray-700/90">
+      <p className="p-5 text-lg text-gray-700/90 dark:text-white/60">
         As a young developer specializing in modern web solutions, I help
         <b> small businesses, creators, and professionals</b> establish their
         digital presence with <b>fast, affordable, and conversion-focused</b>{" "}
@@ -154,7 +164,7 @@ const PackagesTable = () => {
   const [IsTable, setIsTable] = useState(false);
   return (
     <>
-      <div className="text-sm text-gray-600 py-2 mb-4 text-center ">
+      <div className="text-sm text-gray-600 dark:text-gray-300 py-2 mb-4 text-center ">
         Want a quick comparison?{" "}
         <button
           onClick={() => {
@@ -174,7 +184,7 @@ const PackagesTable = () => {
         <div className="overflow-x-auto no-scrollbar pb-5 px-5">
           <table
             data-aos="zoom-in"
-            className="w-full shadow-xs border-collapse overflow-hidden"
+            className="w-full bg-white dark:bg-gray-400/80 shadow-xs border-collapse overflow-hidden"
           >
             <thead className=" bg-prime/80 text-white">
               <tr>
@@ -192,29 +202,35 @@ const PackagesTable = () => {
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-gray-200">
+            <tbody className="divide-y divide-gray-200 dark:text-white">
               <tr>
                 <td className="py-3 px-4 font-medium">Pages</td>
                 <td className="text-center py-3 px-4">1</td>
-                <td className="text-center py-3 px-4 bg-blue-50">3-4</td>
+                <td className="text-center py-3 px-4 bg-blue-50 dark:bg-gray-500/80">
+                  3-4
+                </td>
                 <td className="text-center py-3 px-4">6+</td>
               </tr>
               <tr>
                 <td className="py-3 px-4 font-medium">Revisions</td>
                 <td className="text-center py-3 px-4">∞</td>
-                <td className="text-center py-3 px-4 bg-blue-50">∞</td>
+                <td className="text-center py-3 px-4 bg-blue-50 dark:bg-gray-500/80">
+                  ∞
+                </td>
                 <td className="text-center py-3 px-4">∞</td>
               </tr>
               <tr>
                 <td className="py-3 px-4 font-medium">Support</td>
                 <td className="text-center py-3 px-4">1 month</td>
-                <td className="text-center py-3 px-4 bg-blue-50">2 months</td>
+                <td className="text-center py-3 px-4 bg-blue-50 dark:bg-gray-500/80">
+                  2 months
+                </td>
                 <td className="text-center py-3 px-4">3 months</td>
               </tr>
               <tr>
                 <td className="py-3 px-4 font-medium">Best For</td>
                 <td className="text-center py-3 px-4">Portfolios</td>
-                <td className="text-center py-3 px-4 bg-blue-50">
+                <td className="text-center py-3 px-4 bg-blue-50 dark:bg-gray-500/80">
                   Small Businesses
                 </td>
                 <td className="text-center py-3 px-4">Startups</td>
@@ -224,7 +240,7 @@ const PackagesTable = () => {
                 <td className="text-center py-3 px-4 font-bold text-lg">
                   ₹500
                 </td>
-                <td className="text-center py-3 px-4 font-bold text-lg bg-blue-50 text-blue-600">
+                <td className="text-center py-3 px-4 font-bold text-lg bg-blue-50 dark:bg-gray-500/80 text-blue-600 dark:text-blue-300">
                   ₹800
                 </td>
                 <td className="text-center py-3 px-4 font-bold text-lg">
@@ -322,7 +338,7 @@ const FAQSection = () => {
               {openIndex === idx && (
                 <p
                   data-aos="fade-down"
-                  className="px-5 py-2 text-gray-500 bg-white shadow-sm text-sm"
+                  className="px-5 py-2 text-gray-500 dark:text-white/70 bg-white dark:bg-gray-800 shadow-sm text-sm"
                 >
                   {pair.ans}
                 </p>
@@ -353,7 +369,7 @@ const FAQSection = () => {
 
 const LaunchOfferAd = () => {
   return (
-    <div className="bg-blue-50 p-6 rounded-xl border border-blue-200 shadow-sm">
+    <div className="bg-blue-50 dark:bg-blue-50/70 p-6 rounded-xl border border-blue-200 shadow-sm">
       <h3 className="font-semibold text-xl text-blue-900 mb-2">
         Special Launch Offer
       </h3>
@@ -377,7 +393,7 @@ const LaunchOfferAd = () => {
 
 const FeedbackDiscountAd = () => {
   return (
-    <div className="bg-green-50 p-6 rounded-xl border border-green-200 shadow-sm">
+    <div className="bg-green-50 dark:bg-green-50/70 p-6 rounded-xl border border-green-200 shadow-sm">
       <h3 className="font-semibold text-xl text-green-900 mb-2">
         Feedback-Based Discount
       </h3>
@@ -432,7 +448,9 @@ const TestimonialSection = () => {
   return (
     <div data-ui="testimonials" className="px-5">
       <SubHeading text="testimonials" icon="ri-question-answer-fill" />
-      <h2 className="text-gray-600/90">(What My Clients Say)</h2>
+      <h2 className="text-gray-600/90 dark:text-white/60">
+        (What My Clients Say)
+      </h2>
       <div data-ui="feedBackBox" className="">
         {testimonialData.map((testimonial, index) => (
           <Testimonial
@@ -507,7 +525,7 @@ const Services = () => {
   return (
     <div
       id="services"
-      className="bg-gradient-to-b from-gray-100 to-white w-full"
+      className="bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-700 w-full"
     >
       <SectionHead title="Services" icon="ri-briefcase-fill" />
       <IntroPara />
@@ -523,7 +541,7 @@ const Services = () => {
         <Package gig={standardPack} type={"standard"} />
         <Package gig={premiumPack} type={"premium"} />
       </div>
-      <p className="px-4 text-gray-700/90">
+      <p className="px-4 text-gray-700/90 dark:text-white/90">
         All packages include{" "}
         <b>
           mobile-friendly designs, SEO basics, and 1-month post-delivery support

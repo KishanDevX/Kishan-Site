@@ -17,7 +17,7 @@ const App = () => {
   return (
     <>
       <Header />
-      <main className="w-full bg-white dark:bg-gray-900 flex flex-col items-center">
+      <main className="w-full flex flex-col items-center">
         <Home />
         <About />
         <Projects />

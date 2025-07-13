@@ -14,7 +14,7 @@ const ProjectType = ({ type, referencePara, icon, projects }) => {
           <Project key={index} {...project} />
         ))}
       </div>
-      <p className="text-gray-700/90">{referencePara}</p>
+      <p className="text-gray-700/90 dark:text-white/70">{referencePara}</p>
     </section>
   );
 };
@@ -32,7 +32,7 @@ const Project = ({
       data-ui="project"
       data-aos="zoom-in-up"
       data-aos-duration="1000"
-      className="px-4 mx-2 w-90 mr-10 py-4 bg-white shadow-md shadow-gray-300/50 shrink-0 rounded-2xl"
+      className="px-4 mx-2 w-90 mr-10 py-4 bg-white dark:bg-gray-600/50 shadow-md shadow-gray-300/50 dark:shadow-gray-900 shrink-0 rounded-2xl"
     >
       <div data-ui="image-display" className="rounded-2xl h-40 flex gap-2 mb-3">
         <img
@@ -46,15 +46,17 @@ const Project = ({
           className="w-[70%] h-full object-cover bg-gray-300 rounded-md shadow-sm"
         />
       </div>
-      <h3 className="text-xl font-bold mb-2">{title}</h3>
+      <h3 className="text-xl dark:text-white font-bold mb-2">{title}</h3>
 
-      <p className="text-sm text-gray-600">{description}</p>
+      <p className="text-sm text-gray-600 dark:text-white/60">{description}</p>
       <span className="font-semibold text-prime mt-3 block">Features:</span>
       <ul className="text-text-800 text-sm">
         {features.map((feature, index) => (
           <li key={index} className="flex items-center">
             <span className="text-prime text-2xl pr-1">&bull;</span>
-            <span className="text-gray-800/80">{feature}</span>
+            <span className="text-gray-800/80 dark:text-white /70">
+              {feature}
+            </span>
           </li>
         ))}
       </ul>
@@ -76,6 +78,7 @@ const Project = ({
   );
 };
 
+// __not in use yet!
 const ServicesIntroducer = () => {
   return (
     <div
@@ -210,9 +213,12 @@ const Projects = () => {
   };
 
   return (
-    <div id="projects" className="w-full bg-gray-100 pb-30">
+    <div
+      id="projects"
+      className="w-full bg-gradient-to-t from-white to-gray-100 dark:from-gray-900 dark:to-gray-700   pb-30"
+    >
       <SectionHead title="My Projects" icon="ri-folder-fill" />
-      <p className="text-gray-700/90 p-3 mb-5">
+      <p className="text-gray-700/90 dark:text-white/70 p-3 mb-5">
         A curated set of projects categorized to highlight different strengths —
         from pixel-perfect UI clones and original problem-solving apps to
         business-ready templates built for real-world use.

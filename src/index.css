@@ -19,5 +19,5 @@ html {
 }
 
 body {
-  @apply bg-gray-900/70;
+  @apply bg-prime shadow-2xl;
 }

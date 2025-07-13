@@ -77,11 +77,13 @@ const MobileNav = ({ show, onClose }) => {
   return (
     <>
       {/* Backdrop to darken background */}
-      {show && <div className="fixed inset-0 bg-gray-800/30 z-50"></div>}
+      {show && (
+        <div className="fixed inset-0 bg-gray-800/30 dark:bg-gray400 z-100"></div>
+      )}
 
       <nav
         ref={navRef}
-        className={`fixed flex flex-col h-screen shadow-gray-800 shadow-xs rounded-tl-2xl w-[60%] bg-gradient-to-l from-prime to-[#5c3ccf] z-[100] right-0 transition-transform duration-300 ease-in-out ${
+        className={`fixed flex flex-col h-[100dvh] shadow-gray-800 shadow-xs rounded-tl-xl rounded-bl-xl w-[60%] bg-gradient-to-l from-prime to-[#5c3ccf] z-[100] right-0 transition-transform duration-300 ease-in-out ${
           show ? "translate-x-0" : "translate-x-full"
         }`}
       >

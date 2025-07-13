@@ -8,25 +8,19 @@ const ContactForm = () => {
       <input
         type="text"
         placeholder="Your Name"
-        className="w-full bg-white p-3 mb-3 border rounded-lg"
+        className="w-full bg-white dark:bg-white/50 p-3 mb-3 border rounded-lg"
         required
       />
       <input
         type="email"
         placeholder="Email ID"
-        className="w-full bg-white p-3 mb-3 border rounded-lg"
+        className="w-full bg-white dark:bg-white/50 p-3 mb-3 border rounded-lg"
         required
       />
-      <select className="w-full bg-white p-3 mb-3 border rounded-lg">
-        <option>I'm interested in...</option>
-        <option>Basic Website (₹500)</option>
-        <option>Business Website (₹800)</option>
-        <option>Custom Project</option>
-      </select>
       <textarea
         placeholder="Tell me about your project..."
         rows="4"
-        className="w-full bg-white p-3 mb-3 border rounded-lg"
+        className="w-full bg-white dark:bg-white/50  p-3 mb-3 border rounded-lg"
       ></textarea>
       <button
         type="submit"
@@ -41,7 +35,9 @@ const ContactForm = () => {
 const QuickContact = () => {
   return (
     <>
-      <h3 className="text-xl font-bold mb-4">Quick Connect</h3>
+      <h3 className="text-xl font-bold mb-4 dark:text-white/80">
+        Quick Connect
+      </h3>
       <div className="space-y-4">
         <a
           href="tel:+91YOURNUMBER"
@@ -76,14 +72,18 @@ const QuickContact = () => {
 
 const Availability = () => {
   return (
-    <div className="my-6 bg-yellow-50 p-4 rounded-lg border border-yellow-400">
-      <h4 className="font-bold flex items-center gap-2">
+    <div className="my-6 bg-yellow-50 dark:bg-yellow-50/70 p-4 rounded-lg border border-yellow-400">
+      <h4 className="font-bold text-gray-900 dark:text-black/80 flex items-center gap-2">
         <i className="ri-time-line"></i> Availability
       </h4>
       <p className="text-sm text-gray-800/80 mt-2">
-        <span className="text-yellow-400">Mon-Sat:</span> 10AM - 7PM
+        <span className="text-yellow-400 dark:text-yellow-200">Mon-Sat:</span>{" "}
+        10AM - 7PM
         <br />
-        <span className="text-yellow-400">Fastest response:</span> Via WhatsApp
+        <span className="text-yellow-400 dark:text-yellow-200">
+          Fastest response:
+        </span>{" "}
+        Via WhatsApp
       </p>
     </div>
   );
@@ -92,12 +92,17 @@ const Availability = () => {
 // main contact section
 const Contact = () => {
   return (
-    <div id="contact" className="w-full pb-30 bg-blue-50">
+    <div
+      id="contact"
+      className="w-full pb-30 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-700"
+    >
       <SectionHead title="Contact" icon="ri-phone-fill" />
       <div className="grid md:grid-cols-2 gap-6 px-5 mt-4">
         {/* Left Side - Form */}
         <div>
-          <h3 className="text-xl font-bold mb-4">Send a Message</h3>
+          <h3 className="text-xl font-bold mb-4 dark:text-white/80">
+            Send a Message
+          </h3>
           <ContactForm />
         </div>
 
