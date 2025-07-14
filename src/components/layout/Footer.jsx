@@ -7,7 +7,7 @@ const Footer = () => {
         {/* Brand Column */}
         <div className="col-span-2">
           <div className="flex items-center gap-2 mb-4">
-            <span className="text-2xl font-bold dark:text-white/80 text-black/60">
+            <span className="text-2xl font-bold dark:text-white/80 text-black/70">
               KishanDevX
             </span>
             <span className="bg-prime/10 text-prime text-xs px-2 py-1 rounded-full">
@@ -36,7 +36,7 @@ const Footer = () => {
 
         {/* Quick Links */}
         <div>
-          <h3 className="dark:text-white/70 text-black/60 font-medium mb-4 text-lg">
+          <h3 className="dark:text-white/70 text-black/65 font-medium mb-4 text-lg">
             Get In Touch
           </h3>
           <ul className="space-y-3 dark:text-white/40 text-black/50">
@@ -67,7 +67,7 @@ const Footer = () => {
 
         {/* Contact Info */}
         <div>
-          <h3 className="dark:text-white/70 text-black/60 font-medium mb-4 text-lg">
+          <h3 className="dark:text-white/70 text-black/65 font-medium mb-4 text-lg">
             Quick Links
           </h3>
           <ul className="space-y-2 dark:text-white/40 text-black/50">

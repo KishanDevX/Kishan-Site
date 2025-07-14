@@ -14,7 +14,10 @@ const SocialLink = ({ url, icon }) => (
 // home section components
 const AnimationSection = () => {
   return (
-    <div className="w-full lg:w-1/2 flex px-5 justify-center">
+    <div
+      data-aos="fade-up"
+      className="w-full lg:w-1/2 flex px-5 justify-center"
+    >
       <Lottie
         animationData={codingAnimation}
         loop={true}
@@ -43,7 +46,11 @@ const Home = () => {
       <AnimationSection />
 
       {/* Text Content (Right) */}
-      <div className="w-full lg:w-1/2 px-4 space-y-4 lg:space-y-6">
+
+      <div
+        data-aos="fade-up"
+        className="w-full lg:w-1/2 px-4 space-y-4 lg:space-y-6"
+      >
         <div className="space-y-2">
           <p
             data-aos="fade-right"

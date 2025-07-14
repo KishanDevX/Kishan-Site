@@ -14,7 +14,7 @@ const ProjectType = ({ type, referencePara, icon, projects }) => {
           <Project key={index} {...project} />
         ))}
       </div>
-      <p className="text-gray-700/90 dark:text-white/70">{referencePara}</p>
+      <p className="text-gray-700/60 dark:text-white/70">{referencePara}</p>
     </section>
   );
 };
@@ -218,7 +218,10 @@ const Projects = () => {
       className="w-full bg-gradient-to-t from-white to-gray-100 dark:from-gray-900 dark:to-gray-700   pb-30"
     >
       <SectionHead title="My Projects" icon="ri-folder-fill" />
-      <p className="text-gray-700/90 dark:text-white/70 p-3 mb-5">
+      <p
+        data-aos="fade-right"
+        className="text-gray-700/90 dark:text-white/70 p-3 mb-5"
+      >
         A curated set of projects categorized to highlight different strengths —
         from pixel-perfect UI clones and original problem-solving apps to
         business-ready templates built for real-world use.

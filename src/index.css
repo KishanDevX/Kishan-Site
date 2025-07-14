@@ -19,5 +19,5 @@ html {
 }
 
 body {
-  @apply bg-prime shadow-2xl;
+  @apply bg-prime;
 }

@@ -6,7 +6,10 @@ import SubHeading from "../components/common/SubHeading";
 const IntroductionSection = () => (
   <div className="px-2 py-4 m-4">
     <SubHeading text="Who am I?" icon="ri-user-3-line" />
-    <p className="text-gray-700/90 leading-relaxed dark:text-white/80">
+    <p
+      data-aos="fade-right"
+      className="text-gray-700/90 leading-relaxed dark:text-white/80"
+    >
       I'm a 17 years old <b>frontend specialist</b> building modern websites for
       small businesses and creators.
       <br /> While I excel at crafting responsive UIs, I'm also passionate about{" "}
@@ -43,22 +46,42 @@ const SkillsSection = () => {
   const skillGroups = [
     {
       name: "Core Technologies",
-      items: ["HTML5", "CSS3", "JavaScript (ES6+)", "TypeScript"],
+      items: [
+        { name: "HTML5", icon: "devicon-html5-plain" },
+        { name: "CSS3", icon: "devicon-css3-plain" },
+        { name: "JavaScript (ES6+)", icon: "devicon-javascript-plain" },
+        { name: "TypeScript", icon: "devicon-typescript-plain" },
+      ],
       description: "The essential languages that make your website work",
     },
     {
       name: "Frameworks & Libraries",
-      items: ["React", "Tailwind CSS", "Framer Motion", "React Router"],
+      items: [
+        { name: "React", icon: "devicon-react-original" },
+        { name: "Tailwind CSS", icon: "devicon-tailwindcss-plain" },
+        { name: "Framer Motion", icon: "devicon-framermotion-original" },
+        { name: "React Router", icon: "devicon-reactrouter-plain" },
+      ],
       description: "Powerful tools to build modern, interactive designs",
     },
     {
       name: "Development Tools",
-      items: ["Git/GitHub", "VS Code", "Figma", "Vite", "NPM"],
+      items: [
+        { name: "Git/GitHub", icon: "devicon-git-plain" },
+        { name: "VS Code", icon: "devicon-vscode-plain" },
+        { name: "Figma", icon: "devicon-figma-plain" },
+        { name: "Vite", icon: "devicon-vitejs-plain" },
+        { name: "NPM", icon: "devicon-npm-original-wordmark" },
+      ],
       description: "My go-to toolkit for creating and managing your project",
     },
     {
       name: "Deployment Platforms",
-      items: ["Vercel", "Netlify", "GitHub Pages"],
+      items: [
+        { name: "Netlify", icon: "devicon-netlify-plain" },
+        { name: "Vercel", icon: "devicon-vercel-original" },
+        { name: "GitHub Pages", icon: "devicon-github-original" },
+      ],
       description: "Where your website goes live for the world to see",
     },
   ];
@@ -81,12 +104,15 @@ const SkillsSection = () => {
             <ul className="flex flex-wrap gap-2">
               {group.items.map((item, idx) => (
                 <li
-                  key={item}
+                  key={item.name}
                   data-aos="zoom-out-up"
                   data-aos-delay={`${idx * 300}`}
-                  className="bg-white dark:bg-gray-600 shadow-xs text-prime dark:text-purple-300 px-3 py-1 rounded-full text-sm"
+                  className="bg-white dark:bg-gray-600 shadow-xs  px-3 py-1 rounded-full text-sm"
                 >
-                  {item}
+                  <span className="flex text-prime dark:text-blue-300 items-center gap-1">
+                    <i className={item.icon}></i>
+                    {item.name}
+                  </span>
                 </li>
               ))}
             </ul>
@@ -98,7 +124,7 @@ const SkillsSection = () => {
 };
 
 const BioCard = () => (
-  <div className="w-full pb-25 ">
+  <div className="w-full pb-25" data-aos="fade-up">
     <div className="flex flex-col items-center">
       <div
         data-ui="myself-pic"
@@ -120,15 +146,20 @@ const BioCard = () => (
       </div>
     </div>
 
-    <div data-ui="tags" className="flex flex-wrap justify-center mt-2">
+    <div
+      data-ui="tags"
+      className="flex overflow-x-hidden flex-wrap justify-center mt-2"
+    >
       {[
         "Client-First Approach",
         "Freelance Ready",
         "Fast Delivery",
         "Unlimited Revisions",
         "Self-Taught",
-      ].map((tag) => (
+      ].map((tag, idx) => (
         <span
+          data-aos="fade-left"
+          data-aos-delay={idx * 200}
           className="bg-white dark:bg-white/30 px-3 py-1 text-gray-800/80 dark:text-white/80 shadow-sm rounded-2xl m-1"
           key={tag}
         >

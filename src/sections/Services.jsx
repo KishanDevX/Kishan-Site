@@ -115,11 +115,12 @@ const Package = ({ gig, type }) => {
   );
 };
 
-const Testimonial = ({ pic, name, feedback, rating }) => {
+const Testimonial = ({ pic, name, feedback, rating, animateDirection }) => {
   return (
     <div
       data-ui="testimonial"
-      className=" bg-white dark:bg-gray-500 rounded-lg mx-4 mt-5 p-3 shadow-xs"
+      data-aos={`fade-up-${animateDirection}`}
+      className=" bg-white  dark:bg-gray-500 rounded-lg mx-4 mt-5 p-3 shadow-xs"
     >
       <div data-ui="clientPic" className="flex justify-center items-center">
         <img src={pic} alt={name} className="rounded-full h-15 w-15" />
@@ -369,7 +370,10 @@ const FAQSection = () => {
 
 const LaunchOfferAd = () => {
   return (
-    <div className="bg-blue-50 dark:bg-blue-50/70 p-6 rounded-xl border border-blue-200 shadow-sm">
+    <div
+      data-aos="fade-up"
+      className="bg-blue-50 dark:bg-blue-50/70 p-6 rounded-xl border border-blue-200 shadow-sm"
+    >
       <h3 className="font-semibold text-xl text-blue-900 mb-2">
         Special Launch Offer
       </h3>
@@ -393,7 +397,10 @@ const LaunchOfferAd = () => {
 
 const FeedbackDiscountAd = () => {
   return (
-    <div className="bg-green-50 dark:bg-green-50/70 p-6 rounded-xl border border-green-200 shadow-sm">
+    <div
+      data-aos="fade-up"
+      className="bg-green-50 dark:bg-green-50/70 p-6 rounded-xl border border-green-200 shadow-sm"
+    >
       <h3 className="font-semibold text-xl text-green-900 mb-2">
         Feedback-Based Discount
       </h3>
@@ -449,9 +456,9 @@ const TestimonialSection = () => {
     <div data-ui="testimonials" className="px-5">
       <SubHeading text="testimonials" icon="ri-question-answer-fill" />
       <h2 className="text-gray-600/90 dark:text-white/60">
-        (What My Clients Say)
+        (What My Clients Say){" "}
       </h2>
-      <div data-ui="feedBackBox" className="">
+      <div data-ui="feedBackBox" className="overflow-hidden">
         {testimonialData.map((testimonial, index) => (
           <Testimonial
             key={index}
@@ -459,6 +466,7 @@ const TestimonialSection = () => {
             name={testimonial.name}
             feedback={testimonial.feedback}
             rating={testimonial.rating}
+            animateDirection={index % 2 == 0 ? "left" : "right"}
           />
         ))}
       </div>
@@ -525,7 +533,7 @@ const Services = () => {
   return (
     <div
       id="services"
-      className="bg-gradient-to-b from-gray-100 to-white dark:from-gray-800 dark:to-gray-700 w-full"
+      className="bg-gradient-to-t from-gray-100 to-white dark:from-gray-800 dark:via-gray-700 dark:to-gray-900 w-full"
     >
       <SectionHead title="Services" icon="ri-briefcase-fill" />
       <IntroPara />
