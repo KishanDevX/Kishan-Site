@@ -97,7 +97,7 @@ const Contact = () => {
   return (
     <div
       id="contact"
-      className="w-full pb-30 bg-gradient-to-b from-blue-50 to-white dark:from-gray-800 dark:to-gray-700"
+      className="w-full pb-30 bg-gradient-to-b from-gray-50 to-white dark:from-gray-800 dark:to-gray-700"
     >
       <SectionHead title="Contact" icon="ri-phone-fill" />
       <div className="grid md:grid-cols-2 gap-6 px-5 mt-4">

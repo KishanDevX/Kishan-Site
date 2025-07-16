@@ -1,30 +1,41 @@
-import React, { useEffect } from "react";
-import Header from "./components/layout/Header";
-import Home from "./sections/Home";
-import About from "./sections/About";
-import Projects from "./sections/Projects";
-import Services from "./sections/Services";
+import React, { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import Contact from "./sections/Contact";
+import Header from "./components/layout/Header";
+import Main from "./components/layout/Main";
 import Footer from "./components/layout/Footer";
 
 const App = () => {
+  const [showSplash, setShowSplash] = useState(true);
+
   useEffect(() => {
     AOS.init({ duration: 800 });
+    const timer = setTimeout(() => setShowSplash(false), 1700);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-      <Header />
-      <main className="w-full flex flex-col items-center">
-        <Home />
-        <About />
-        <Projects />
-        <Services />
-        <Contact />
-      </main>
-      <Footer />
+      {showSplash ? (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-prime text-white text-3xl">
+          <span>
+            <Typewriter
+              words={["welcome :)"]}
+              loop={false}
+              cursor
+              cursorStyle="|"
+              typeSpeed={90}
+            />
+          </span>
+        </div>
+      ) : (
+        <>
+          <Header />
+          <Main />
+          <Footer />
+        </>
+      )}
     </>
   );
 };

@@ -39,11 +39,33 @@ const Header = () => {
           Kishan-DevX
         </div>
         <i
-          className="ri-menu-3-line text-white text-shadow-2xs text-2xl font-bold"
+          className="ri-menu-3-line lg:hidden text-white text-shadow-2xs text-2xl font-bold"
           onClick={() => {
             setshowNav(true);
           }}
         ></i>
+        <ul className="hidden lg:flex gap-8 text-white capitalize mr-1">
+          <li>
+            <a href="#home">home</a>
+          </li>
+          <li>
+            <a href="#about">about</a>
+          </li>
+          <li>
+            <a href="#services">services</a>
+          </li>
+          <li>
+            <a href="#projects">projects</a>
+          </li>
+          <li>
+            <a
+              className="bg-white text-prime rounded-full px-3 py-1"
+              href="#contact"
+            >
+              contact
+            </a>
+          </li>
+        </ul>
       </header>
 
       <MobileNav

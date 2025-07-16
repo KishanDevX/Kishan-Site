@@ -4,7 +4,7 @@ import SubHeading from "../components/common/SubHeading";
 
 // about section components
 const IntroductionSection = () => (
-  <div className="px-2 py-4 m-4">
+  <div className=" px-2 py-4 w-full">
     <SubHeading text="Who am I?" icon="ri-user-3-line" />
     <p
       data-aos="fade-right"
@@ -20,7 +20,7 @@ const IntroductionSection = () => (
 );
 
 const WhatIDoSection = () => (
-  <div className="px-2 py-4 m-4">
+  <div className="px-2 py-4 w-full">
     <SubHeading text="My Approach" icon="ri-flask-line" />
     <ul>
       {[
@@ -87,10 +87,10 @@ const SkillsSection = () => {
   ];
 
   return (
-    <div className="px-2 py-4 m-4">
+    <div className="px-2 col-start-2 row-start-1 py-4 h-full w-full">
       <SubHeading text="My Toolkit" icon="ri-tools-line" />
 
-      <div className="space-y-6">
+      <div className="space-y-5 md:space-y-20">
         {skillGroups.map((group) => (
           <div key={group.name} className="p-4 border-b border-gray-200">
             <div className="mb-1">
@@ -107,9 +107,9 @@ const SkillsSection = () => {
                   key={item.name}
                   data-aos="zoom-out-up"
                   data-aos-delay={`${idx * 300}`}
-                  className="bg-white dark:bg-gray-600 shadow-xs  px-3 py-1 rounded-full text-sm"
+                  className="bg-white dark:bg-gray-200 shadow-xs  px-3 py-1 rounded-full text-sm"
                 >
-                  <span className="flex text-prime dark:text-blue-300 items-center gap-1">
+                  <span className="flex text-prime items-center gap-1">
                     <i className={item.icon}></i>
                     {item.name}
                   </span>
@@ -124,7 +124,7 @@ const SkillsSection = () => {
 };
 
 const BioCard = () => (
-  <div className="w-full pb-25" data-aos="fade-up">
+  <div className=" grid-cols-start-1  w-full " data-aos="fade-up">
     <div className="flex flex-col items-center">
       <div
         data-ui="myself-pic"
@@ -167,7 +167,7 @@ const BioCard = () => (
         </span>
       ))}
     </div>
-    <div className="w-full flex justify-center mt-4">
+    <div className="w-full flex justify-center my-4">
       <a className="bg-prime text-white px-4 py-1 rounded-xl" href="#projects">
         <i className="ri-folder-5-line"></i> View Projects
       </a>
@@ -185,15 +185,13 @@ const About = () => {
       <div>
         <SectionHead title="About Me" icon="ri-id-card-fill" />
 
-        <div>
-          <div>
+        <div className="sm:grid flex flex-col gap-10 grid-cols-2 sm:py-20 sm:gap-5 lg:gap-30">
+          <div className="sm:px-10 flex flex-col gap-10">
             <IntroductionSection />
             <WhatIDoSection />
-            <SkillsSection />
-          </div>
-          <div className="flex justify-center py-8">
             <BioCard />
           </div>
+          <SkillsSection />
         </div>
       </div>
     </section>

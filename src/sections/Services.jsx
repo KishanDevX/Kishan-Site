@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { Typewriter } from "react-simple-typewriter";
 import SectionHead from "../components/common/SectionHead";
 import SubHeading from "../components/common/SubHeading";
 
@@ -21,11 +22,22 @@ const Package = ({ gig, type }) => {
 
   const [gigFeatures, setgigFeatures] = useState(false);
 
+  const [inrToUsd, setinrToUsd] = useState(null);
+
+  useEffect(() => {
+    fetch("https://api.frankfurter.app/latest?from=USD&to=INR")
+      .then((res) => res.json())
+      .then((data) => {
+        setinrToUsd(data.rates.INR);
+      })
+      .catch((err) => console.error("Exchange rate error:", err));
+  }, []);
+
   return (
     <div
       data-ui="packageGig"
       data-aos="zoom-in"
-      className="shadow-xl bg-white dark:bg-gray-800 rounded-2xl mx-5 mb-15"
+      className="shadow-xl max-w-md bg-white dark:bg-gray-800 rounded-2xl mx-5 mb-15"
     >
       <div
         data-ui="screen"
@@ -33,9 +45,22 @@ const Package = ({ gig, type }) => {
       >
         <span className="text-2xl text-white capitalize">{type}</span>
         <span className="text-4xl text-white py-1 font-bold text-shadow-2xs">
-          {gig.price}
+          ₹{gig.price.toLocaleString("en-IN")}
         </span>
-        <h2 className="text-white/80">{gig.title}</h2>
+        <h2 className="text-white/80">
+          <Typewriter
+            words={[
+              `${gig.title}`,
+              `starting from only ${(gig.price / inrToUsd).toFixed(2)} USD`,
+            ]}
+            loop={0}
+            cursor
+            cursorStyle="|"
+            typeSpeed={70}
+            deleteSpeed={50}
+            delaySpeed={4000}
+          />
+        </h2>
       </div>
       <div data-ui="textPart" className="p-4">
         <span className="text-gray-600/90 dark:text-white/70">
@@ -95,7 +120,7 @@ const Package = ({ gig, type }) => {
             </span>
           )}{" "}
           <span className="text-gray-800/80 dark:text-white/90">
-            {gig.price}
+            ₹{gig.price.toLocaleString("en-IN")}
           </span>
         </h5>
         <br />
@@ -488,7 +513,7 @@ const Services = () => {
       "Unlimited revisions within 7 days of delivery",
       "1-month free support for minor fixes",
     ],
-    price: "₹500",
+    price: 500, //in INR
     leftSlots: 3,
     link: "#",
   };
@@ -506,7 +531,7 @@ const Services = () => {
       "Google Maps integration (For local businesses)",
       "Unlimited revisions + 2-month support",
     ],
-    price: "₹800",
+    price: 800, //in INR
     originPrice: "₹1,499",
     leftSlots: 7,
     link: "#",
@@ -524,7 +549,7 @@ const Services = () => {
       "Database setup (Firebase/MongoDB for data storage)",
       "3-month priority support",
     ],
-    price: "₹1,200",
+    price: 1200, //in INR
     originPrice: "₹2,499",
     leftSlots: 5,
     link: "#",

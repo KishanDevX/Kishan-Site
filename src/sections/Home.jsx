@@ -14,10 +14,7 @@ const SocialLink = ({ url, icon }) => (
 // home section components
 const AnimationSection = () => {
   return (
-    <div
-      data-aos="fade-up"
-      className="w-full lg:w-1/2 flex px-5 justify-center"
-    >
+    <div className="w-full lg:w-1/2 flex px-5 justify-center">
       <Lottie
         animationData={codingAnimation}
         loop={true}
@@ -41,16 +38,12 @@ const Home = () => {
   return (
     <section
       id="home"
-      className="bg-white dark:bg-gray-900 w-full lg:w-[80%] min-h-screen  mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 py-20"
+      className="bg-white dark:bg-gray-900 w-full min-h-screen flex flex-col lg:flex-row items-center justify-center lg:justify-between gap-8 py-20"
     >
       <AnimationSection />
 
       {/* Text Content (Right) */}
-
-      <div
-        data-aos="fade-up"
-        className="w-full lg:w-1/2 px-4 space-y-4 lg:space-y-6"
-      >
+      <div data-aos="fade-up" className=" lg:w-1/2 px-4 space-y-4 lg:space-y-6">
         <div className="space-y-2">
           <p
             data-aos="fade-right"
@@ -69,7 +62,7 @@ const Home = () => {
         </div>
 
         {/* Value Proposition */}
-        <p className="text-gray-700 dark:text-white/80 md:text-lg leading-relaxed">
+        <p className="text-gray-700 max-w-xl dark:text-white/80 md:text-lg leading-relaxed">
           I build{" "}
           <span className="font-semibold text-prime">
             fast, responsive websites
