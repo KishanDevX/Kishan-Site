@@ -36,8 +36,8 @@ This portfolio will serve as my digital space to showcase:
 ## 📝 How to Run Locally
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/KishanDevX/Kishan-Site.git
+cd Kishan-Site
 npm install
 npm run dev
 ```
