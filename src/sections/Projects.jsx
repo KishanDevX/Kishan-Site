@@ -3,6 +3,7 @@ import SectionHead from "../components/common/SectionHead";
 import Lottie from "lottie-react";
 import searchingAnimation from "../assets/Animations/searchingAnimation.json";
 import SubHeading from "../components/common/SubHeading";
+import { clientProjects, problemSolvingApps, uiClones } from "../data/projects";
 
 // common
 const ProjectType = ({ type, referencePara, icon, projects }) => {
@@ -23,7 +24,6 @@ const Project = ({
   title,
   thumbnail,
   description,
-  features,
   previewLink,
   sourceCodeLink,
 }) => {
@@ -49,17 +49,6 @@ const Project = ({
       <h3 className="text-xl dark:text-white font-bold mb-2">{title}</h3>
 
       <p className="text-sm text-gray-600 dark:text-white/60">{description}</p>
-      <span className="font-semibold text-prime mt-3 block">Features:</span>
-      <ul className="text-text-800 text-sm">
-        {features.map((feature, index) => (
-          <li key={index} className="flex items-center">
-            <span className="text-prime text-2xl pr-1">&bull;</span>
-            <span className="text-gray-800/80 dark:text-white /70">
-              {feature}
-            </span>
-          </li>
-        ))}
-      </ul>
       <div className="mt-4 flex items-center gap-4">
         <a
           href={sourceCodeLink}
@@ -115,94 +104,6 @@ const ServicesIntroducer = () => {
 
 // main projects Section
 const Projects = () => {
-  const uiClones = [
-    {
-      title: "UI Clone 1",
-      thumbnail: {
-        mobileView: "#",
-        desktopView: "#",
-      },
-      description: "A pixel-perfect clone of a popular UI design.",
-      features: ["Responsive", "Accessible", "Cross-browser compatible"],
-      previewLink: "#",
-      sourceCodeLink: "#",
-    },
-    {
-      title: "UI Clone 1",
-      thumbnail: {
-        mobileView: "#",
-        desktopView: "#",
-      },
-      description: "A pixel-perfect clone of a popular UI design.",
-      features: ["Responsive", "Accessible", "Cross-browser compatible"],
-      previewLink: "#",
-      sourceCodeLink: "#",
-    },
-    {
-      title: "UI Clone 1",
-      thumbnail: {
-        mobileView: "#",
-        desktopView: "#",
-      },
-      description: "A pixel-perfect clone of a popular UI design.",
-      features: ["Responsive", "Accessible", "Cross-browser compatible"],
-      previewLink: "#",
-      sourceCodeLink: "#",
-    },
-  ];
-
-  const problemSolvingApps = [
-    {
-      title: "Problem Solving App 1",
-
-      thumbnail: {
-        mobileView: "#",
-        desktopView: "#",
-      },
-      description: "An app that solves a specific problem effectively.",
-      features: ["Feature 1", "Feature 2", "Feature 3"],
-      previewLink: "#",
-      sourceCodeLink: "#",
-    },
-    {
-      title: "Problem Solving App 2",
-
-      thumbnail: {
-        mobileView: "#",
-        desktopView: "#",
-      },
-      description: "An app that solves a specific problem effectively.",
-      features: ["Feature 1", "Feature 2", "Feature 3"],
-      previewLink: "#",
-      sourceCodeLink: "#",
-    },
-  ];
-
-  const clientProjects = [
-    {
-      title: "Business Template 1",
-      thumbnail: {
-        mobileView: "#",
-        desktopView: "#",
-      },
-      description: "A template designed for business use.",
-      features: ["Feature 1", "Feature 2", "Feature 3"],
-      previewLink: "#",
-      sourceCodeLink: "#",
-    },
-    {
-      title: "Business Template 1",
-      thumbnail: {
-        mobileView: "#",
-        desktopView: "#",
-      },
-      description: "A template designed for business use.",
-      features: ["Feature 1", "Feature 2", "Feature 3"],
-      previewLink: "#",
-      sourceCodeLink: "#",
-    },
-  ];
-
   const explainPara = {
     uiCloning:
       "Clean, pixel-perfect recreations of real-world interfaces — these projects demonstrate my ability to replicate complex layouts and responsive designs with precision. They show you how closely I can match any visual idea you bring.",
@@ -222,7 +123,7 @@ const Projects = () => {
         data-aos="fade-right"
         className="text-gray-700/90 dark:text-white/70 p-3 mb-5"
       >
-        A curated set of projects categorized to highlight different strengths —
+        A curated set of projects categorized to highlight different strengths,
         from pixel-perfect UI clones and original problem-solving apps to
         business-ready templates built for real-world use.
       </p>

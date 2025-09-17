@@ -37,7 +37,7 @@ const Package = ({ gig, type }) => {
     <div
       data-ui="packageGig"
       data-aos="zoom-in"
-      className="shadow-xl max-w-md bg-white dark:bg-gray-800 rounded-2xl mx-5 mb-15"
+      className="shadow-xl scale-90 w-full h-full lg:w-1/3 max-w-lg bg-white dark:bg-gray-800 rounded-2xl"
     >
       <div
         data-ui="screen"
@@ -62,18 +62,18 @@ const Package = ({ gig, type }) => {
           />
         </h2>
       </div>
-      <div data-ui="textPart" className="p-4">
-        <span className="text-gray-600/90 dark:text-white/70">
+      <div data-ui="textPart" className="m-4">
+        <p className="text-gray-600/90 dark:text-white/70">
           <b className="text-gray-600 dark:text-white/90">For:</b> {gig.for}
-        </span>
+        </p>
         <br />
-        <span className="text-gray-600/90 dark:text-white/70">
+        <p className="text-gray-600/90 h-10 dark:text-white/70">
           <b className="text-gray-600 dark:text-white/90">Perfect for:</b>{" "}
           {gig.perfectFor}
-        </span>
+        </p>
         <br />
         <button
-          className={`pt-6 ${colors[type].text} capitalize font-semibold flex items-center `}
+          className={`mt-6 ${colors[type].text} capitalize font-semibold flex items-center `}
           onClick={() => {
             setgigFeatures((prev) => !prev);
           }}
@@ -86,7 +86,7 @@ const Package = ({ gig, type }) => {
           )}
         </button>
         {gigFeatures && (
-          <ul className="text-gray-800/90 pb-4">
+          <ul className="text-gray-800/90 mb-4">
             {gig.gives.map((give, index) => {
               return (
                 <li
@@ -172,15 +172,17 @@ const Testimonial = ({ pic, name, feedback, rating, animateDirection }) => {
 const IntroPara = () => {
   return (
     <>
-      <p className="p-5 text-lg text-gray-700/90 dark:text-white/60">
-        As a young developer specializing in modern web solutions, I help
-        <b> small businesses, creators, and professionals</b> establish their
-        digital presence with <b>fast, affordable, and conversion-focused</b>{" "}
-        websites.
-        <br /> <br />
-        Unlike agencies that charge premium rates, I deliver{" "}
-        <b>hand-coded websites with unlimited revisions</b>—ensuring you get
-        exactly what you need without breaking the bank.
+      <p className="p-5 text-lg  w-full mr-10 text-gray-700/90 dark:text-white/60">
+        <span className="lg:w-[80%] inline-block">
+          As a young developer specializing in modern web solutions, I help
+          <b> small businesses, creators, and professionals</b> establish their
+          digital presence with <b>fast, affordable, and conversion-focused</b>{" "}
+          websites.
+          <br /> <br />
+          Unlike agencies that charge premium rates, I deliver{" "}
+          <b>hand-coded websites with unlimited revisions</b>—ensuring you get
+          exactly what you need without breaking the bank.
+        </span>
       </p>
     </>
   );
@@ -570,9 +572,14 @@ const Services = () => {
             Tailored for You
           </span>
         </h3>
-        <Package gig={basicPack} type={"basic"} />
-        <Package gig={standardPack} type={"standard"} />
-        <Package gig={premiumPack} type={"premium"} />
+        <div
+          data-ui="packageBox"
+          className="flex lg:flex-row flex-col justify-center items-start lg:gap-20 gap-10 mb-20 mt-10 lg:mx-20 mx-5"
+        >
+          <Package gig={basicPack} type={"basic"} />
+          <Package gig={standardPack} type={"standard"} />
+          <Package gig={premiumPack} type={"premium"} />
+        </div>
       </div>
       <p className="px-4 text-gray-700/90 dark:text-white/90">
         All packages include{" "}

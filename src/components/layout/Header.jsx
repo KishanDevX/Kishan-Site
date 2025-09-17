@@ -59,10 +59,13 @@ const Header = () => {
           </li>
           <li>
             <a
-              className="bg-white text-prime rounded-full px-3 py-1"
+              className="bg-white/80 shadow-gray-400 shadow-2xs text-prime rounded-full px-3 py-1"
               href="#contact"
             >
-              contact
+              <span className="font-bold lowercase border-prime/20 border-r-2">
+                contact me{" "}
+              </span>
+              <i className="ri-arrow-right-line font-bold pl-2"></i>
             </a>
           </li>
         </ul>

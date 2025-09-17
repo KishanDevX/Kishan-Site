@@ -1,39 +1,33 @@
 # 🚀 My Developer Portfolio
 
-This is the **second commit** of my personal developer portfolio project built with **React** and **Tailwind CSS**.
+Welcome to my **personal developer portfolio** built using **React**, **Tailwind CSS**, and **Vite**.
 
 ## 📁 Project Overview
 
-This portfolio will serve as my digital space to showcase:
+This portfolio is designed to be a digital space where I showcase:
 
-- My projects
-- Skills
-- About Me section
+- My web development projects
+- Technical skills and tools
+- Personal introduction
 - Contact information
-- And much more coming soon...
+- And more interactive sections
 
 ## ⚙️ Tech Stack
 
-- **React** – For building the user interface
-- **Tailwind CSS** – For styling with utility-first CSS
-- **Vite** – For fast bundling and local development
+- **React** – Building dynamic user interfaces
+- **Tailwind CSS** – Utility-first styling framework
+- **Vite** – Fast bundler and development server
 
-## 📌 Current Status
+## ✨ Features
 
-- Project initialized
-- Folder structure set up
-- Tailwind CSS configured
-- First section under construction (Home / Intro)
+- Fully responsive design across devices
+- Smooth animations with Framer Motion
+- Modular and reusable components
+- Dark mode support
 
-## 🚧 Upcoming Features
+## 🛠️ Getting Started
 
-- Responsive design for all screen sizes
-- Smooth animations using Framer Motion
-- Reusable components for different sections
-- Dark Mode support
-- Deployment (Netlify / Vercel)
-
-## 📝 How to Run Locally
+To run this project locally:
 
 ```bash
 git clone https://github.com/KishanDevX/Kishan-Site.git

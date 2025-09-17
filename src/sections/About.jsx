@@ -4,23 +4,23 @@ import SubHeading from "../components/common/SubHeading";
 
 // about section components
 const IntroductionSection = () => (
-  <div className=" px-2 py-4 w-full">
+  <div className="px-5 py-4 w-full">
     <SubHeading text="Who am I?" icon="ri-user-3-line" />
     <p
       data-aos="fade-right"
       className="text-gray-700/90 leading-relaxed dark:text-white/80"
     >
-      I'm a 17 years old <b>frontend specialist</b> building modern websites for
-      small businesses and creators.
+      I'm a <b>frontend specialist</b> building modern websites for small
+      businesses and creators.
       <br /> While I excel at crafting responsive UIs, I'm also passionate about{" "}
-      <b>system programming</b>—giving me unique insight into performance
+      <b>system programming</b>, giving me unique insight into performance
       optimization.
     </p>
   </div>
 );
 
 const WhatIDoSection = () => (
-  <div className="px-2 py-4 w-full">
+  <div className="px-5 py-4 w-full">
     <SubHeading text="My Approach" icon="ri-flask-line" />
     <ul>
       {[
@@ -87,10 +87,10 @@ const SkillsSection = () => {
   ];
 
   return (
-    <div className="px-2 col-start-2 row-start-1 py-4 h-full w-full">
+    <div className="px-2 pb-20 col-start-2 py-4 h-full w-full ">
       <SubHeading text="My Toolkit" icon="ri-tools-line" />
 
-      <div className="space-y-5 md:space-y-20">
+      <div className="space-y-5 sm:grid grid-cols-2 grid-rows-2 md:space-y-20">
         {skillGroups.map((group) => (
           <div key={group.name} className="p-4 border-b border-gray-200">
             <div className="mb-1">
@@ -124,7 +124,10 @@ const SkillsSection = () => {
 };
 
 const BioCard = () => (
-  <div className=" grid-cols-start-1  w-full " data-aos="fade-up">
+  <div
+    className="row-start-1 col-start-2 row-span-3 w-full px-10"
+    data-aos="fade-up"
+  >
     <div className="flex flex-col items-center">
       <div
         data-ui="myself-pic"
@@ -184,9 +187,8 @@ const About = () => {
     >
       <div>
         <SectionHead title="About Me" icon="ri-id-card-fill" />
-
-        <div className="sm:grid flex flex-col gap-10 grid-cols-2 sm:py-20 sm:gap-5 lg:gap-30">
-          <div className="sm:px-10 flex flex-col gap-10">
+        <div className=" flex flex-col gap-10 sm:py-20 sm:gap-5 lg:gap-30">
+          <div data-ui="aboutGrid" className="md:grid grid-cols-2">
             <IntroductionSection />
             <WhatIDoSection />
             <BioCard />
